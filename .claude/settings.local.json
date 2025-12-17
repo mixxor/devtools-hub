@@ -5,7 +5,8 @@
       "Bash(bash -c:*)",
       "WebSearch",
       "Bash(npm install:*)",
-      "Bash(npm run build:css:*)"
+      "Bash(npm run build:css:*)",
+      "Bash(docker build:*)"
     ]
   }
 }

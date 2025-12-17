@@ -1,0 +1,12 @@
+{
+  "name": "devtools-hub",
+  "version": "1.0.0",
+  "description": "Free developer tools - codeutils.de",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./css/src/main.css -o ./css/style.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}

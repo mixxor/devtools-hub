@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timestamp Converter - codeutils.de</title>
+    <meta name="description" content="Free Unix timestamp converter. Convert between Unix timestamps and human-readable dates. Supports seconds and milliseconds. No ads, no tracking.">
+    <meta name="keywords" content="timestamp converter, unix timestamp, epoch converter, date converter, time converter">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Timestamp Converter - codeutils.de">
+    <meta property="og:description" content="Free Unix timestamp converter. Convert between timestamps and dates.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://codeutils.de/timestamp-converter.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Timestamp Converter - codeutils.de">
+    <meta name="twitter:description" content="Free Unix timestamp converter. No ads, no tracking.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Klaro Consent Management -->
+    <script src="/js/klaro-config.js"></script>
+    <script defer data-config="klaroConfig" src="https://cdn.kiir.de/klaro/v0.7/klaro.js"></script>
+</head>
+<body class="bg-dark-950 text-dark-100 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="py-6 px-4 border-b border-dark-800">
+        <div class="max-w-7xl mx-auto">
+            <a href="/" class="inline-flex items-center text-dark-400 hover:text-emerald-400 transition-colors text-sm mb-4">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Tools
+            </a>
+            <h1 class="text-2xl md:text-3xl font-bold text-white">Timestamp Converter</h1>
+            <p class="mt-1 text-dark-400 text-sm">Convert between Unix timestamps and human-readable dates</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-8">
+        <!-- Current Time Display -->
+        <div class="tool-card p-6 mb-8">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <h2 class="text-sm font-medium text-dark-400 mb-1">Current Unix Timestamp</h2>
+                    <div class="flex items-center gap-3">
+                        <span id="current-timestamp" class="text-3xl font-mono text-emerald-400">—</span>
+                        <button id="copy-current-btn" class="text-dark-400 hover:text-emerald-400 transition-colors" title="Copy">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <span class="text-sm text-dark-400">Local Time</span>
+                    <p id="current-datetime" class="text-dark-200 font-mono">—</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Input Section -->
+            <div class="space-y-6">
+                <!-- Timestamp to Date -->
+                <div class="tool-card p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">Timestamp to Date</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="timestamp-input" class="block text-sm text-dark-400 mb-2">Enter Unix Timestamp</label>
+                            <div class="flex gap-2">
+                                <input
+                                    type="text"
+                                    id="timestamp-input"
+                                    class="tool-input flex-1"
+                                    placeholder="1702857600"
+                                    autocomplete="off"
+                                    spellcheck="false"
+                                >
+                                <button id="convert-ts-btn" class="tool-btn-primary" data-primary-action>
+                                    Convert
+                                </button>
+                            </div>
+                            <p id="timestamp-error" class="text-red-400 text-sm mt-2 hidden"></p>
+                        </div>
+
+                        <!-- Unit Selection -->
+                        <div>
+                            <label class="block text-sm text-dark-400 mb-2">Unit</label>
+                            <div class="flex gap-2">
+                                <button class="unit-btn active" data-unit="seconds">Seconds</button>
+                                <button class="unit-btn" data-unit="milliseconds">Milliseconds</button>
+                            </div>
+                        </div>
+
+                        <!-- Quick Timestamp Buttons -->
+                        <div>
+                            <label class="block text-sm text-dark-400 mb-2">Quick values</label>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="prefix-btn" data-quick="now">Now</button>
+                                <button class="prefix-btn" data-quick="today-start">Today Start</button>
+                                <button class="prefix-btn" data-quick="today-end">Today End</button>
+                                <button class="prefix-btn" data-quick="week-ago">-1 Week</button>
+                                <button class="prefix-btn" data-quick="month-ago">-1 Month</button>
+                                <button class="prefix-btn" data-quick="year-ago">-1 Year</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Date to Timestamp -->
+                <div class="tool-card p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">Date to Timestamp</h2>
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="date-input" class="block text-sm text-dark-400 mb-2">Date</label>
+                                <input
+                                    type="date"
+                                    id="date-input"
+                                    class="tool-input w-full"
+                                >
+                            </div>
+                            <div>
+                                <label for="time-input" class="block text-sm text-dark-400 mb-2">Time</label>
+                                <input
+                                    type="time"
+                                    id="time-input"
+                                    class="tool-input w-full"
+                                    step="1"
+                                >
+                            </div>
+                        </div>
+                        <div>
+                            <label for="timezone-select" class="block text-sm text-dark-400 mb-2">Timezone</label>
+                            <select id="timezone-select" class="tool-input w-full">
+                                <option value="local">Local Time</option>
+                                <option value="UTC">UTC</option>
+                                <option value="America/New_York">Eastern Time (ET)</option>
+                                <option value="America/Los_Angeles">Pacific Time (PT)</option>
+                                <option value="Europe/London">London (GMT/BST)</option>
+                                <option value="Europe/Berlin">Berlin (CET/CEST)</option>
+                                <option value="Asia/Tokyo">Tokyo (JST)</option>
+                                <option value="Asia/Shanghai">Shanghai (CST)</option>
+                            </select>
+                        </div>
+                        <button id="convert-date-btn" class="tool-btn-secondary w-full">
+                            Convert to Timestamp
+                        </button>
+                        <div id="date-result" class="hidden">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="result-item">
+                                    <span class="result-label">Seconds</span>
+                                    <span id="date-result-seconds" class="result-value"></span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">Milliseconds</span>
+                                    <span id="date-result-millis" class="result-value"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parse Date String -->
+                <div class="tool-card p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">Parse Date String</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="datestring-input" class="block text-sm text-dark-400 mb-2">Enter date string</label>
+                            <input
+                                type="text"
+                                id="datestring-input"
+                                class="tool-input w-full"
+                                placeholder="Dec 17, 2025 or 2025-12-17T10:30:00"
+                                autocomplete="off"
+                                spellcheck="false"
+                            >
+                        </div>
+                        <button id="parse-date-btn" class="tool-btn-secondary w-full">
+                            Parse Date
+                        </button>
+                        <p id="datestring-error" class="text-red-400 text-sm hidden"></p>
+                        <div id="datestring-result" class="hidden">
+                            <div class="result-item">
+                                <span class="result-label">Parsed Timestamp</span>
+                                <span id="datestring-timestamp" class="result-value"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="space-y-6">
+                <!-- Conversion Results -->
+                <div id="results-card" class="tool-card p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">Conversion Results</h2>
+
+                    <div id="results-placeholder" class="text-center py-12 text-dark-500">
+                        <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <p>Enter a timestamp to see conversion results</p>
+                    </div>
+
+                    <div id="results-content" class="hidden space-y-4">
+                        <!-- Date Formats -->
+                        <div class="space-y-3">
+                            <div class="result-item">
+                                <div class="result-item-header">
+                                    <span class="result-label">Local Time</span>
+                                    <button class="result-copy-btn" data-copy-target="result-local" title="Copy">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
+                                <span id="result-local" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-item-header">
+                                    <span class="result-label">UTC</span>
+                                    <button class="result-copy-btn" data-copy-target="result-utc" title="Copy">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
+                                <span id="result-utc" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-item-header">
+                                    <span class="result-label">ISO 8601</span>
+                                    <button class="result-copy-btn" data-copy-target="result-iso" title="Copy">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
+                                <span id="result-iso" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-item-header">
+                                    <span class="result-label">RFC 2822</span>
+                                    <button class="result-copy-btn" data-copy-target="result-rfc" title="Copy">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
+                                <span id="result-rfc" class="result-value"></span>
+                            </div>
+                        </div>
+
+                        <!-- Timestamps -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="result-item">
+                                <div class="result-item-header">
+                                    <span class="result-label">Seconds</span>
+                                    <button class="result-copy-btn" data-copy-target="result-seconds" title="Copy">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
+                                <span id="result-seconds" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-item-header">
+                                    <span class="result-label">Milliseconds</span>
+                                    <button class="result-copy-btn" data-copy-target="result-millis" title="Copy">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
+                                <span id="result-millis" class="result-value"></span>
+                            </div>
+                        </div>
+
+                        <!-- Relative Time -->
+                        <div class="result-item">
+                            <span class="result-label">Relative Time</span>
+                            <span id="result-relative" class="result-value text-emerald-400"></span>
+                        </div>
+
+                        <!-- Additional Info -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="result-item">
+                                <span class="result-label">Day of Year</span>
+                                <span id="result-day-of-year" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Week Number</span>
+                                <span id="result-week" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Day of Week</span>
+                                <span id="result-day-of-week" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Leap Year</span>
+                                <span id="result-leap-year" class="result-value"></span>
+                            </div>
+                        </div>
+
+                        <!-- Clear Button -->
+                        <div class="mt-4">
+                            <button id="clear-btn" class="tool-btn-ghost" data-clear-action>
+                                Clear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notable Timestamps Reference -->
+                <div class="tool-card p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">Notable Timestamps</h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="text-dark-400 text-left">
+                                    <th class="pb-2">Event</th>
+                                    <th class="pb-2">Timestamp</th>
+                                    <th class="pb-2">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="notable-timestamps" class="text-dark-300">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-dark-800 py-6 px-4 mt-auto">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-dark-500 text-xs">All conversions run client-side - your data stays private</p>
+            <div class="mt-2 flex justify-center gap-4 text-xs text-dark-500">
+                <a href="/" class="hover:text-dark-300 transition-colors">Home</a>
+                <span>|</span>
+                <a href="/impressum.html" class="hover:text-dark-300 transition-colors">Impressum</a>
+                <span>|</span>
+                <span>&copy; 2025 codeutils.de</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/js/common.js"></script>
+    <script src="/js/timestamp-converter.js"></script>
+</body>
+</html>
