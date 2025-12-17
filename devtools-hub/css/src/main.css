@@ -1,0 +1,363 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for codeutils.de */
+
+/* Tool Card Styles */
+.tool-card {
+    position: relative;
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #334155;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.tool-card:hover,
+.tool-card:focus-within {
+    border-color: #10b981;
+    box-shadow: 0 20px 40px -12px rgba(16, 185, 129, 0.15);
+}
+
+/* Tool Link - stretches to cover entire card */
+.tool-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.tool-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.tool-link:focus {
+    outline: none;
+}
+
+.tool-link:focus-visible {
+    outline: none;
+}
+
+/* Focus ring on card itself */
+.tool-card:focus-within {
+    outline: 2px solid #10b981;
+    outline-offset: 2px;
+}
+
+/* Screenshot Container */
+.screenshot-container {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #020617;
+    position: relative;
+}
+
+.screenshot-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Screenshot Placeholder */
+.screenshot-placeholder {
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    font-size: 3rem;
+}
+
+/* Tool Card Content */
+.tool-card-content {
+    padding: 1.25rem;
+}
+
+/* Open Tool Button */
+.open-tool-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #10b981;
+    color: #020617;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.tool-card:hover .open-tool-btn,
+.tool-card:focus-within .open-tool-btn {
+    background: #34d399;
+}
+
+.open-tool-btn svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Coming Soon Card */
+.coming-soon-card {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid #1e293b;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    text-align: center;
+    opacity: 0.6;
+}
+
+.coming-soon-card:hover {
+    opacity: 0.8;
+    border-color: #334155;
+}
+
+.coming-soon-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    filter: grayscale(100%);
+}
+
+.coming-soon-name {
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection Color */
+::selection {
+    background: #10b981;
+    color: #020617;
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.loading {
+    background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* ========================================
+   Tool Page Styles (Shared across tools)
+   ======================================== */
+
+/* Tool Input */
+.tool-input {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: #f1f5f9;
+    font-size: 0.875rem;
+}
+
+.tool-input:focus {
+    outline: none;
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.tool-input::placeholder {
+    color: #64748b;
+}
+
+.tool-input.input-error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Tool Buttons */
+.tool-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #10b981;
+    color: #020617;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    border: none;
+    cursor: pointer;
+}
+
+.tool-btn-primary:hover {
+    background: #34d399;
+}
+
+.tool-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    border: 1px solid #334155;
+    cursor: pointer;
+}
+
+.tool-btn-secondary:hover {
+    background: #334155;
+    border-color: #475569;
+}
+
+.tool-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: #94a3b8;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.tool-btn-ghost:hover {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+/* Prefix Button (for CIDR quick selection) */
+.prefix-btn {
+    background: #0f172a;
+    color: #94a3b8;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-family: monospace;
+    border: 1px solid #334155;
+    cursor: pointer;
+}
+
+.prefix-btn:hover {
+    background: #1e293b;
+    border-color: #10b981;
+    color: #10b981;
+}
+
+/* Result Item */
+.result-item {
+    background: #0f172a;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+}
+
+.result-label {
+    display: block;
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+}
+
+.result-value {
+    display: block;
+    font-family: monospace;
+    font-size: 0.875rem;
+    color: #e2e8f0;
+}
+
+/* Result Item with Copy Button */
+.result-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+
+.result-copy-btn {
+    background: transparent;
+    border: none;
+    padding: 0.25rem;
+    cursor: pointer;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-copy-btn:hover {
+    color: #10b981;
+}
+
+.result-copy-btn.copied {
+    color: #10b981;
+}
+
+.result-copy-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Toast Notifications */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid #334155;
+    opacity: 0;
+    z-index: 1000;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.toast-success {
+    border-color: #10b981;
+}
+
+.toast-error {
+    border-color: #ef4444;
+}
+
+/* Scrollbar Styling for IP List */
+#ip-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+#ip-list::-webkit-scrollbar-track {
+    background: #0f172a;
+    border-radius: 3px;
+}
+
+#ip-list::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 3px;
+}
+
+#ip-list::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}

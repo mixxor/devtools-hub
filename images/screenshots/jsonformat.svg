@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgJson" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bgJson)"/>
+
+  <!-- Header bar -->
+  <rect x="40" y="40" width="720" height="50" rx="8" fill="#334155"/>
+
+  <!-- JSON icon in header -->
+  <g transform="translate(55, 52)">
+    <rect x="0" y="0" width="36" height="26" rx="4" fill="#10b981"/>
+    <text x="18" y="18" font-family="monospace" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="bold">{ }</text>
+  </g>
+
+  <!-- Action buttons -->
+  <g transform="translate(520, 52)">
+    <rect x="0" y="0" width="55" height="26" rx="4" fill="#10b981"/>
+    <text x="27" y="18" font-family="sans-serif" font-size="10" fill="#0f172a" text-anchor="middle" font-weight="bold">Format</text>
+    <rect x="60" y="0" width="55" height="26" rx="4" fill="#1e293b" stroke="#475569"/>
+    <text x="87" y="18" font-family="sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Minify</text>
+    <rect x="120" y="0" width="55" height="26" rx="4" fill="#1e293b" stroke="#475569"/>
+    <text x="147" y="18" font-family="sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Validate</text>
+  </g>
+
+  <!-- Input panel (minified JSON) -->
+  <rect x="40" y="110" width="350" height="200" rx="8" fill="#0f172a" stroke="#334155"/>
+  <text x="60" y="135" font-family="monospace" font-size="11" fill="#64748b">INPUT (Minified)</text>
+  <rect x="55" y="145" width="320" height="150" rx="4" fill="#1e293b"/>
+
+  <!-- Minified JSON content -->
+  <text x="65" y="165" font-family="monospace" font-size="10" fill="#64748b">{"name":"codeutils",</text>
+  <text x="65" y="180" font-family="monospace" font-size="10" fill="#64748b">"version":"1.0.0","tools"</text>
+  <text x="65" y="195" font-family="monospace" font-size="10" fill="#64748b">:["base64","json","url",</text>
+  <text x="65" y="210" font-family="monospace" font-size="10" fill="#64748b">"timestamp","cidr"],"meta"</text>
+  <text x="65" y="225" font-family="monospace" font-size="10" fill="#64748b">:{"author":"dev","active"</text>
+  <text x="65" y="240" font-family="monospace" font-size="10" fill="#64748b">:true,"count":5}}</text>
+
+  <!-- Validation status -->
+  <g transform="translate(300, 280)">
+    <circle r="6" fill="#10b981"/>
+    <path d="M-3 0 L-1 2 L3 -2" stroke="#0f172a" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="12" y="4" font-family="sans-serif" font-size="9" fill="#10b981">Valid JSON</text>
+  </g>
+
+  <!-- Conversion arrow -->
+  <g transform="translate(400, 210)">
+    <circle r="22" fill="#334155"/>
+    <path d="M-10 0 L10 0 M5 -5 L10 0 L5 5" stroke="#10b981" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Output panel (formatted JSON) -->
+  <rect x="410" y="110" width="350" height="200" rx="8" fill="#0f172a" stroke="#334155"/>
+  <text x="430" y="135" font-family="monospace" font-size="11" fill="#64748b">OUTPUT (Formatted)</text>
+  <rect x="425" y="145" width="320" height="150" rx="4" fill="#1e293b"/>
+
+  <!-- Formatted JSON with syntax highlighting -->
+  <text x="435" y="163" font-family="monospace" font-size="10" fill="#10b981">{</text>
+  <text x="445" y="178" font-family="monospace" font-size="10" fill="#60a5fa">"name"</text>
+  <text x="490" y="178" font-family="monospace" font-size="10" fill="#e2e8f0">:</text>
+  <text x="500" y="178" font-family="monospace" font-size="10" fill="#f59e0b">"codeutils"</text>
+  <text x="575" y="178" font-family="monospace" font-size="10" fill="#e2e8f0">,</text>
+
+  <text x="445" y="193" font-family="monospace" font-size="10" fill="#60a5fa">"version"</text>
+  <text x="515" y="193" font-family="monospace" font-size="10" fill="#e2e8f0">:</text>
+  <text x="525" y="193" font-family="monospace" font-size="10" fill="#f59e0b">"1.0.0"</text>
+  <text x="570" y="193" font-family="monospace" font-size="10" fill="#e2e8f0">,</text>
+
+  <text x="445" y="208" font-family="monospace" font-size="10" fill="#60a5fa">"tools"</text>
+  <text x="495" y="208" font-family="monospace" font-size="10" fill="#e2e8f0">:</text>
+  <text x="505" y="208" font-family="monospace" font-size="10" fill="#10b981">[</text>
+  <text x="515" y="208" font-family="monospace" font-size="10" fill="#f59e0b">"base64"</text>
+  <text x="565" y="208" font-family="monospace" font-size="10" fill="#e2e8f0">,</text>
+  <text x="575" y="208" font-family="monospace" font-size="10" fill="#f59e0b">...</text>
+  <text x="595" y="208" font-family="monospace" font-size="10" fill="#10b981">]</text>
+  <text x="605" y="208" font-family="monospace" font-size="10" fill="#e2e8f0">,</text>
+
+  <text x="445" y="223" font-family="monospace" font-size="10" fill="#60a5fa">"meta"</text>
+  <text x="485" y="223" font-family="monospace" font-size="10" fill="#e2e8f0">:</text>
+  <text x="495" y="223" font-family="monospace" font-size="10" fill="#10b981">{</text>
+  <text x="505" y="223" font-family="monospace" font-size="10" fill="#f59e0b">...</text>
+  <text x="525" y="223" font-family="monospace" font-size="10" fill="#10b981">}</text>
+
+  <text x="435" y="238" font-family="monospace" font-size="10" fill="#10b981">}</text>
+
+  <!-- Line numbers -->
+  <text x="725" y="280" font-family="monospace" font-size="9" fill="#475569" text-anchor="end">12 lines</text>
+
+  <!-- Bottom stats panel -->
+  <rect x="40" y="330" width="720" height="70" rx="8" fill="#0f172a" stroke="#334155"/>
+
+  <!-- Stats -->
+  <g transform="translate(60, 355)">
+    <!-- Size comparison -->
+    <rect x="0" y="0" width="150" height="35" rx="4" fill="#1e293b"/>
+    <text x="75" y="14" font-family="monospace" font-size="9" fill="#475569" text-anchor="middle">SIZE</text>
+    <text x="40" y="28" font-family="monospace" font-size="11" fill="#64748b" text-anchor="middle">142B</text>
+    <text x="75" y="28" font-family="monospace" font-size="11" fill="#475569" text-anchor="middle">→</text>
+    <text x="110" y="28" font-family="monospace" font-size="11" fill="#10b981" text-anchor="middle">287B</text>
+
+    <!-- Depth -->
+    <rect x="170" y="0" width="100" height="35" rx="4" fill="#1e293b"/>
+    <text x="220" y="14" font-family="monospace" font-size="9" fill="#475569" text-anchor="middle">DEPTH</text>
+    <text x="220" y="28" font-family="monospace" font-size="11" fill="#f59e0b" text-anchor="middle">3 levels</text>
+
+    <!-- Keys -->
+    <rect x="290" y="0" width="100" height="35" rx="4" fill="#1e293b"/>
+    <text x="340" y="14" font-family="monospace" font-size="9" fill="#475569" text-anchor="middle">KEYS</text>
+    <text x="340" y="28" font-family="monospace" font-size="11" fill="#60a5fa" text-anchor="middle">7 keys</text>
+
+    <!-- Values -->
+    <rect x="410" y="0" width="100" height="35" rx="4" fill="#1e293b"/>
+    <text x="460" y="14" font-family="monospace" font-size="9" fill="#475569" text-anchor="middle">VALUES</text>
+    <text x="460" y="28" font-family="monospace" font-size="11" fill="#f59e0b" text-anchor="middle">5 strings</text>
+
+    <!-- Indent -->
+    <rect x="530" y="0" width="100" height="35" rx="4" fill="#1e293b"/>
+    <text x="580" y="14" font-family="monospace" font-size="9" fill="#475569" text-anchor="middle">INDENT</text>
+    <text x="580" y="28" font-family="monospace" font-size="11" fill="#10b981" text-anchor="middle">2 spaces</text>
+  </g>
+</svg>

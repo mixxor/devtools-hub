@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIDR Calculator - codeutils.de</title>
+    <meta name="description" content="Free CIDR calculator and IP range tool. Calculate network addresses, subnet masks, usable hosts, and convert between CIDR and IP ranges. No ads, no tracking.">
+    <meta name="keywords" content="CIDR calculator, IP range, subnet calculator, network calculator, IP address, subnet mask">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="CIDR Calculator - codeutils.de">
+    <meta property="og:description" content="Free CIDR calculator and IP range tool. Calculate network addresses, subnet masks, and usable hosts.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://codeutils.de/cidr-calculator.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CIDR Calculator - codeutils.de">
+    <meta name="twitter:description" content="Free CIDR calculator and IP range tool. No ads, no tracking.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Klaro Consent Management -->
+    <script src="/js/klaro-config.js"></script>
+    <script defer data-config="klaroConfig" src="https://cdn.kiir.de/klaro/v0.7/klaro.js"></script>
+</head>
+<body class="bg-dark-950 text-dark-100 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="py-6 px-4 border-b border-dark-800">
+        <div class="max-w-7xl mx-auto">
+            <a href="/" class="inline-flex items-center text-dark-400 hover:text-emerald-400 transition-colors text-sm mb-4">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Tools
+            </a>
+            <h1 class="text-2xl md:text-3xl font-bold text-white">CIDR Calculator</h1>
+            <p class="mt-1 text-dark-400 text-sm">Calculate IP ranges, subnet masks, and network information from CIDR notation</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Input Section -->
+            <div class="space-y-6">
+                <!-- CIDR Input Card -->
+                <div class="tool-card p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">CIDR Notation</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="cidr-input" class="block text-sm text-dark-400 mb-2">Enter CIDR (e.g., 192.168.1.0/24)</label>
+                            <div class="flex gap-2">
+                                <input
+                                    type="text"
+                                    id="cidr-input"
+                                    class="tool-input flex-1"
+                                    placeholder="192.168.1.0/24"
+                                    autocomplete="off"
+                                    spellcheck="false"
+                                >
+                                <button id="calculate-btn" class="tool-btn-primary" data-primary-action>
+                                    Calculate
+                                </button>
+                            </div>
+                            <p id="cidr-error" class="text-red-400 text-sm mt-2 hidden"></p>
+                        </div>
+
+                        <!-- Quick Prefix Selector -->
+                        <div>
+                            <label class="block text-sm text-dark-400 mb-2">Quick prefix selection</label>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="prefix-btn" data-prefix="8">/8</button>
+                                <button class="prefix-btn" data-prefix="16">/16</button>
+                                <button class="prefix-btn" data-prefix="24">/24</button>
+                                <button class="prefix-btn" data-prefix="25">/25</button>
+                                <button class="prefix-btn" data-prefix="26">/26</button>
+                                <button class="prefix-btn" data-prefix="27">/27</button>
+                                <button class="prefix-btn" data-prefix="28">/28</button>
+                                <button class="prefix-btn" data-prefix="29">/29</button>
+                                <button class="prefix-btn" data-prefix="30">/30</button>
+                                <button class="prefix-btn" data-prefix="32">/32</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IP Range to CIDR Card -->
+                <div class="tool-card p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">IP Range to CIDR</h2>
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="start-ip" class="block text-sm text-dark-400 mb-2">Start IP</label>
+                                <input
+                                    type="text"
+                                    id="start-ip"
+                                    class="tool-input w-full"
+                                    placeholder="192.168.1.0"
+                                    autocomplete="off"
+                                    spellcheck="false"
+                                >
+                            </div>
+                            <div>
+                                <label for="end-ip" class="block text-sm text-dark-400 mb-2">End IP</label>
+                                <input
+                                    type="text"
+                                    id="end-ip"
+                                    class="tool-input w-full"
+                                    placeholder="192.168.1.255"
+                                    autocomplete="off"
+                                    spellcheck="false"
+                                >
+                            </div>
+                        </div>
+                        <button id="range-to-cidr-btn" class="tool-btn-secondary w-full">
+                            Convert to CIDR
+                        </button>
+                        <p id="range-error" class="text-red-400 text-sm hidden"></p>
+                        <div id="range-result" class="hidden">
+                            <label class="block text-sm text-dark-400 mb-2">Resulting CIDR(s)</label>
+                            <div id="range-cidrs" class="bg-dark-950 rounded-lg p-3 font-mono text-sm text-emerald-400 space-y-1"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IP in CIDR Check -->
+                <div class="tool-card p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">Check IP in Range</h2>
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="check-ip" class="block text-sm text-dark-400 mb-2">IP Address</label>
+                                <input
+                                    type="text"
+                                    id="check-ip"
+                                    class="tool-input w-full"
+                                    placeholder="192.168.1.50"
+                                    autocomplete="off"
+                                    spellcheck="false"
+                                >
+                            </div>
+                            <div>
+                                <label for="check-cidr" class="block text-sm text-dark-400 mb-2">CIDR Range</label>
+                                <input
+                                    type="text"
+                                    id="check-cidr"
+                                    class="tool-input w-full"
+                                    placeholder="192.168.1.0/24"
+                                    autocomplete="off"
+                                    spellcheck="false"
+                                >
+                            </div>
+                        </div>
+                        <button id="check-ip-btn" class="tool-btn-secondary w-full">
+                            Check
+                        </button>
+                        <div id="check-result" class="hidden text-center py-3 rounded-lg font-medium"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="space-y-6">
+                <!-- Network Information -->
+                <div id="results-card" class="tool-card p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">Network Information</h2>
+
+                    <div id="results-placeholder" class="text-center py-12 text-dark-500">
+                        <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+                        </svg>
+                        <p>Enter a CIDR notation to see network details</p>
+                    </div>
+
+                    <div id="results-content" class="hidden space-y-4">
+                        <!-- Network Details Grid -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="result-item">
+                                <div class="result-item-header">
+                                    <span class="result-label">Network Address</span>
+                                    <button class="result-copy-btn" data-copy-target="result-network" title="Copy">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
+                                <span id="result-network" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-item-header">
+                                    <span class="result-label">Broadcast Address</span>
+                                    <button class="result-copy-btn" data-copy-target="result-broadcast" title="Copy">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
+                                <span id="result-broadcast" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-item-header">
+                                    <span class="result-label">Subnet Mask</span>
+                                    <button class="result-copy-btn" data-copy-target="result-mask" title="Copy">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
+                                <span id="result-mask" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-item-header">
+                                    <span class="result-label">Wildcard Mask</span>
+                                    <button class="result-copy-btn" data-copy-target="result-wildcard" title="Copy">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
+                                <span id="result-wildcard" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Total Addresses</span>
+                                <span id="result-total" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Usable Hosts</span>
+                                <span id="result-usable" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-item-header">
+                                    <span class="result-label">First Usable IP</span>
+                                    <button class="result-copy-btn" data-copy-target="result-first" title="Copy">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
+                                <span id="result-first" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-item-header">
+                                    <span class="result-label">Last Usable IP</span>
+                                    <button class="result-copy-btn" data-copy-target="result-last" title="Copy">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
+                                <span id="result-last" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">IP Class</span>
+                                <span id="result-class" class="result-value"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">IP Type</span>
+                                <span id="result-type" class="result-value"></span>
+                            </div>
+                        </div>
+
+                        <!-- Binary Representation -->
+                        <div class="mt-6">
+                            <h3 class="text-sm font-medium text-dark-400 mb-2">Binary Subnet Mask</h3>
+                            <div id="result-binary" class="bg-dark-950 rounded-lg p-3 font-mono text-xs text-emerald-400 overflow-x-auto"></div>
+                        </div>
+
+                        <!-- Clear Button -->
+                        <div class="mt-4">
+                            <button id="clear-btn" class="tool-btn-ghost" data-clear-action>
+                                Clear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IP Range List -->
+                <div id="ip-range-card" class="tool-card p-6 hidden">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-semibold text-white">IP Address List</h2>
+                        <button id="copy-ips-btn" class="text-sm text-dark-400 hover:text-emerald-400 transition-colors">
+                            Copy All IPs
+                        </button>
+                    </div>
+                    <div id="ip-list" class="bg-dark-950 rounded-lg p-3 font-mono text-xs max-h-64 overflow-y-auto space-y-1"></div>
+                    <p id="ip-list-note" class="text-dark-500 text-xs mt-2"></p>
+                </div>
+
+                <!-- Subnet Reference Table -->
+                <div class="tool-card p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">Common Subnets Reference</h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="text-dark-400 text-left">
+                                    <th class="pb-2">CIDR</th>
+                                    <th class="pb-2">Subnet Mask</th>
+                                    <th class="pb-2">Usable Hosts</th>
+                                </tr>
+                            </thead>
+                            <tbody id="subnet-table" class="text-dark-300">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-dark-800 py-6 px-4 mt-auto">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-dark-500 text-xs">All calculations run client-side - your data stays private</p>
+            <div class="mt-2 flex justify-center gap-4 text-xs text-dark-500">
+                <a href="/" class="hover:text-dark-300 transition-colors">Home</a>
+                <span>|</span>
+                <a href="/impressum.html" class="hover:text-dark-300 transition-colors">Impressum</a>
+                <span>|</span>
+                <span>&copy; 2025 codeutils.de</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/js/common.js"></script>
+    <script src="/js/cidr-calculator.js"></script>
+</body>
+</html>

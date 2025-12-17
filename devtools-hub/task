@@ -1,0 +1,112 @@
+Claude Code Task: Build codeutils.de Hub Landing Page
+Project Overview
+Create a modern, clean developer tools hub landing page for codeutils.de - a gallery-style page that immediately shows the tools without a hero section.
+Tech Stack
+
+Static HTML/CSS/JS (keep it simple, fast-loading)
+Tailwind CSS via CDN (or vanilla CSS if preferred)
+Deploy-ready for Coolify on Hetzner
+No framework needed - pure static site
+
+Design Approach
+
+No hero section - visitors should immediately see the tools
+Gallery/card style layout with screenshots
+Clean, minimal header with just logo/brand
+Tools are the main focus
+
+Structure
+1. Minimal Header
+
+Logo: "codeutils.de"
+Small tagline underneath: "Free developer tools. No ads. No tracking."
+
+2. Tools Gallery (Main Content)
+Large cards with:
+
+Screenshot of the tool (prominent, takes most of card space)
+Tool name
+One-line description
+"Open Tool" button
+Link opens in new tab
+
+Current tools:
+ToolURLDescriptionBase64 Decoder/Encoderhttps://www.base64decoder.deEncode and decode Base64 strings instantlyJSON Formatterhttps://www.jsonformat.deFormat, validate and beautify JSON data
+Screenshots needed:
+
+Take screenshots of both tools (or use placeholder images initially)
+Recommended size: 16:9 aspect ratio, ~800x450px
+Store in /images/screenshots/
+
+3. Coming Soon Section (smaller cards, grayed out)
+
+URL Encoder/Decoder
+JWT Decoder
+UUID Generator
+Timestamp Converter
+Regex Tester
+YAML ↔ JSON Converter
+
+4. Minimal Footer
+
+"Built by a developer, for developers"
+"All tools run client-side - your data stays private"
+Impressum link (German legal requirement)
+Copyright
+
+Design Requirements
+
+Dark mode by default
+Mobile responsive (cards stack on mobile)
+Fast loading
+Clean, professional look
+Cards should have subtle hover effects
+Screenshots should have subtle border/shadow
+
+Data Structure
+Make tools configurable via JS array for easy additions:
+javascriptconst tools = [
+  {
+    name: "Base64 Decoder/Encoder",
+    url: "https://www.base64decoder.de",
+    description: "Encode and decode Base64 strings instantly",
+    screenshot: "/images/screenshots/base64decoder.png",
+    active: true
+  },
+  {
+    name: "JSON Formatter", 
+    url: "https://www.jsonformat.de",
+    description: "Format, validate and beautify JSON data",
+    screenshot: "/images/screenshots/jsonformat.png",
+    active: true
+  },
+  {
+    name: "URL Encoder/Decoder",
+    url: "#",
+    description: "Encode and decode URLs",
+    screenshot: null,
+    active: false // coming soon
+  }
+  // ... more tools
+];
+```
+
+### File Structure
+```
+/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+├── images/
+│   ├── favicon.svg
+│   └── screenshots/
+│       ├── base64decoder.png
+│       └── jsonformat.png
+└── impressum.html
+SEO
+
+Meta tags (title, description, og:image)
+Semantic HTML
+Alt tags on screenshots

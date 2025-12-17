@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgB64" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bgB64)"/>
+
+  <!-- Header bar -->
+  <rect x="40" y="40" width="720" height="50" rx="8" fill="#334155"/>
+
+  <!-- B64 icon in header -->
+  <g transform="translate(55, 52)">
+    <rect x="0" y="0" width="40" height="26" rx="4" fill="#10b981"/>
+    <text x="20" y="18" font-family="monospace" font-size="11" fill="#0f172a" text-anchor="middle" font-weight="bold">B64</text>
+  </g>
+
+  <!-- Mode toggle buttons -->
+  <g transform="translate(620, 52)">
+    <rect x="0" y="0" width="60" height="26" rx="4" fill="#10b981"/>
+    <text x="30" y="18" font-family="sans-serif" font-size="10" fill="#0f172a" text-anchor="middle" font-weight="bold">Encode</text>
+    <rect x="65" y="0" width="60" height="26" rx="4" fill="#1e293b" stroke="#475569"/>
+    <text x="95" y="18" font-family="sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Decode</text>
+  </g>
+
+  <!-- Input panel -->
+  <rect x="40" y="110" width="350" height="180" rx="8" fill="#0f172a" stroke="#334155"/>
+  <text x="60" y="135" font-family="monospace" font-size="11" fill="#64748b">INPUT (Plain Text)</text>
+  <rect x="55" y="145" width="320" height="130" rx="4" fill="#1e293b"/>
+
+  <!-- Input text content -->
+  <text x="70" y="170" font-family="monospace" font-size="13" fill="#e2e8f0">Hello, World!</text>
+  <text x="70" y="190" font-family="monospace" font-size="13" fill="#e2e8f0">This is a test message</text>
+  <text x="70" y="210" font-family="monospace" font-size="13" fill="#e2e8f0">for Base64 encoding.</text>
+
+  <!-- Cursor blink -->
+  <rect x="70" y="220" width="8" height="14" fill="#10b981" opacity="0.7"/>
+
+  <!-- Character count -->
+  <text x="340" y="265" font-family="monospace" font-size="10" fill="#475569" text-anchor="end">56 chars</text>
+
+  <!-- Conversion arrow -->
+  <g transform="translate(400, 200)">
+    <circle r="22" fill="#334155"/>
+    <path d="M-10 0 L10 0 M5 -5 L10 0 L5 5" stroke="#10b981" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Output panel -->
+  <rect x="410" y="110" width="350" height="180" rx="8" fill="#0f172a" stroke="#334155"/>
+  <text x="430" y="135" font-family="monospace" font-size="11" fill="#64748b">OUTPUT (Base64)</text>
+  <rect x="425" y="145" width="320" height="130" rx="4" fill="#1e293b"/>
+
+  <!-- Output text content - Base64 encoded -->
+  <text x="440" y="170" font-family="monospace" font-size="12" fill="#10b981">SGVsbG8sIFdvcmxkIQpU</text>
+  <text x="440" y="190" font-family="monospace" font-size="12" fill="#10b981">aGlzIGlzIGEgdGVzdCBt</text>
+  <text x="440" y="210" font-family="monospace" font-size="12" fill="#10b981">ZXNzYWdlCmZvciBCYXNl</text>
+  <text x="440" y="230" font-family="monospace" font-size="12" fill="#10b981">NjQgZW5jb2Rpbmcu</text>
+
+  <!-- Character count -->
+  <text x="710" y="265" font-family="monospace" font-size="10" fill="#475569" text-anchor="end">76 chars</text>
+
+  <!-- Bottom info panel -->
+  <rect x="40" y="310" width="720" height="90" rx="8" fill="#0f172a" stroke="#334155"/>
+
+  <!-- Encoding visualization -->
+  <text x="60" y="335" font-family="monospace" font-size="11" fill="#64748b">ENCODING PROCESS</text>
+
+  <!-- ASCII to Binary to Base64 flow -->
+  <g transform="translate(60, 350)">
+    <!-- ASCII -->
+    <rect x="0" y="0" width="80" height="35" rx="4" fill="#1e293b"/>
+    <text x="40" y="15" font-family="monospace" font-size="9" fill="#475569" text-anchor="middle">ASCII</text>
+    <text x="40" y="28" font-family="monospace" font-size="11" fill="#e2e8f0" text-anchor="middle">H e l</text>
+
+    <!-- Arrow -->
+    <path d="M90 17 L110 17" stroke="#475569" stroke-width="1.5" fill="none"/>
+    <path d="M105 12 L110 17 L105 22" stroke="#475569" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+    <!-- Binary -->
+    <rect x="120" y="0" width="180" height="35" rx="4" fill="#1e293b"/>
+    <text x="210" y="15" font-family="monospace" font-size="9" fill="#475569" text-anchor="middle">8-bit Binary</text>
+    <text x="210" y="28" font-family="monospace" font-size="10" fill="#f59e0b" text-anchor="middle">01001000 01100101 01101100</text>
+
+    <!-- Arrow -->
+    <path d="M310 17 L330 17" stroke="#475569" stroke-width="1.5" fill="none"/>
+    <path d="M325 12 L330 17 L325 22" stroke="#475569" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+    <!-- 6-bit groups -->
+    <rect x="340" y="0" width="160" height="35" rx="4" fill="#1e293b"/>
+    <text x="420" y="15" font-family="monospace" font-size="9" fill="#475569" text-anchor="middle">6-bit Groups</text>
+    <text x="420" y="28" font-family="monospace" font-size="10" fill="#f59e0b" text-anchor="middle">010010 000110 010101 101100</text>
+
+    <!-- Arrow -->
+    <path d="M510 17 L530 17" stroke="#475569" stroke-width="1.5" fill="none"/>
+    <path d="M525 12 L530 17 L525 22" stroke="#475569" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+    <!-- Base64 -->
+    <rect x="540" y="0" width="100" height="35" rx="4" fill="#1e293b"/>
+    <text x="590" y="15" font-family="monospace" font-size="9" fill="#475569" text-anchor="middle">Base64</text>
+    <text x="590" y="28" font-family="monospace" font-size="12" fill="#10b981" text-anchor="middle">S G V s</text>
+  </g>
+</svg>
