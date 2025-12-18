@@ -26,11 +26,11 @@ const tools = [
     },
     {
         name: "UUID Generator",
-        url: "#",
-        description: "Generate random UUIDs",
-        screenshot: null,
+        url: "/uuid-generator.html",
+        description: "Generate random UUIDs, validate, and convert between formats",
+        screenshot: "/images/screenshots/uuid.svg",
         icon: "#",
-        active: false
+        active: true
     },
     {
         name: "Timestamp Converter",
