@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgUuid" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bgUuid)"/>
+
+  <!-- Header bar -->
+  <rect x="40" y="40" width="720" height="50" rx="8" fill="#334155"/>
+
+  <!-- Hash/UUID icon in header -->
+  <g transform="translate(65, 65)">
+    <text x="-12" y="8" font-family="monospace" font-size="24" font-weight="bold" fill="#10b981">#</text>
+  </g>
+
+  <!-- Title text -->
+  <text x="100" y="72" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="#f8fafc">UUID Generator</text>
+
+  <!-- Main UUID display panel -->
+  <rect x="40" y="110" width="720" height="90" rx="8" fill="#0f172a" stroke="#334155"/>
+  <text x="60" y="140" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">Generated UUID</text>
+  <rect x="60" y="150" width="680" height="40" rx="6" fill="#1e293b"/>
+  <text x="80" y="178" font-family="monospace" font-size="20" fill="#10b981">550e8400-e29b-41d4-a716-446655440000</text>
+
+  <!-- Format buttons row -->
+  <g transform="translate(60, 215)">
+    <rect x="0" y="0" width="90" height="28" rx="4" fill="#10b981"/>
+    <text x="18" y="19" font-family="monospace" font-size="11" fill="#0f172a">lowercase</text>
+
+    <rect x="100" y="0" width="100" height="28" rx="4" fill="#1e293b" stroke="#334155"/>
+    <text x="110" y="19" font-family="monospace" font-size="11" fill="#64748b">UPPERCASE</text>
+
+    <rect x="210" y="0" width="100" height="28" rx="4" fill="#1e293b" stroke="#334155"/>
+    <text x="220" y="19" font-family="monospace" font-size="11" fill="#64748b">No Hyphens</text>
+
+    <rect x="320" y="0" width="80" height="28" rx="4" fill="#1e293b" stroke="#334155"/>
+    <text x="335" y="19" font-family="monospace" font-size="11" fill="#64748b">{Braces}</text>
+  </g>
+
+  <!-- Left panel - UUID Formats -->
+  <rect x="40" y="260" width="350" height="150" rx="8" fill="#0f172a" stroke="#334155"/>
+  <text x="60" y="290" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">UUID FORMATS</text>
+
+  <text x="60" y="320" font-family="system-ui, sans-serif" font-size="10" fill="#475569">Standard:</text>
+  <text x="130" y="320" font-family="monospace" font-size="10" fill="#10b981">550e8400-e29b-41d4-a716-446655440000</text>
+
+  <text x="60" y="345" font-family="system-ui, sans-serif" font-size="10" fill="#475569">Uppercase:</text>
+  <text x="130" y="345" font-family="monospace" font-size="10" fill="#10b981">550E8400-E29B-41D4-A716-446655440000</text>
+
+  <text x="60" y="370" font-family="system-ui, sans-serif" font-size="10" fill="#475569">No hyphens:</text>
+  <text x="130" y="370" font-family="monospace" font-size="10" fill="#10b981">550e8400e29b41d4a716446655440000</text>
+
+  <text x="60" y="395" font-family="system-ui, sans-serif" font-size="10" fill="#475569">URN:</text>
+  <text x="130" y="395" font-family="monospace" font-size="9" fill="#10b981">urn:uuid:550e8400-e29b-41d4-a716-446655440000</text>
+
+  <!-- Right panel - UUID Details -->
+  <rect x="410" y="260" width="350" height="150" rx="8" fill="#0f172a" stroke="#334155"/>
+  <text x="430" y="290" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">UUID STRUCTURE</text>
+
+  <!-- UUID structure visualization -->
+  <g transform="translate(430, 305)">
+    <rect x="0" y="0" width="310" height="30" rx="4" fill="#1e293b"/>
+
+    <!-- Time low (8 hex) -->
+    <rect x="2" y="2" width="68" height="26" rx="2" fill="#10b981" opacity="0.3"/>
+    <text x="20" y="20" font-family="monospace" font-size="9" fill="#10b981">time_low</text>
+
+    <!-- Time mid (4 hex) -->
+    <rect x="72" y="2" width="38" height="26" rx="2" fill="#f59e0b" opacity="0.3"/>
+    <text x="76" y="20" font-family="monospace" font-size="8" fill="#f59e0b">mid</text>
+
+    <!-- Version + time hi (4 hex) -->
+    <rect x="112" y="2" width="42" height="26" rx="2" fill="#8b5cf6" opacity="0.3"/>
+    <text x="116" y="20" font-family="monospace" font-size="8" fill="#8b5cf6">v+hi</text>
+
+    <!-- Variant + clock seq (4 hex) -->
+    <rect x="156" y="2" width="42" height="26" rx="2" fill="#ec4899" opacity="0.3"/>
+    <text x="160" y="20" font-family="monospace" font-size="8" fill="#ec4899">var</text>
+
+    <!-- Node (12 hex) -->
+    <rect x="200" y="2" width="108" height="26" rx="2" fill="#06b6d4" opacity="0.3"/>
+    <text x="230" y="20" font-family="monospace" font-size="9" fill="#06b6d4">node</text>
+  </g>
+
+  <!-- Version and Variant info -->
+  <g transform="translate(430, 355)">
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="10" fill="#475569">Version:</text>
+    <text x="60" y="0" font-family="monospace" font-size="10" fill="#f59e0b">4 (Random)</text>
+
+    <text x="160" y="0" font-family="system-ui, sans-serif" font-size="10" fill="#475569">Variant:</text>
+    <text x="210" y="0" font-family="monospace" font-size="10" fill="#f59e0b">RFC 4122</text>
+  </g>
+
+  <!-- Bit info -->
+  <g transform="translate(430, 380)">
+    <rect x="0" y="0" width="310" height="20" rx="4" fill="#1e293b"/>
+    <text x="10" y="14" font-family="monospace" font-size="10" fill="#64748b">128 bits = 32 hex digits = 36 chars with hyphens</text>
+  </g>
+</svg>
