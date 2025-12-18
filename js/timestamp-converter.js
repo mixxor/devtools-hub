@@ -164,11 +164,16 @@ const TimestampConverter = {
 
         errorEl.classList.add('hidden');
 
-        // Convert to milliseconds if input is in seconds
+        // Auto-detect unit based on timestamp length if needed
+        // 10-11 digits = seconds (1970-2286), 13 digits = milliseconds
         let timestampMs = timestamp;
-        if (this.currentUnit === 'seconds') {
+        const inputLength = input.length;
+
+        if (inputLength <= 11) {
+            // Treat as seconds - multiply to get milliseconds
             timestampMs = timestamp * 1000;
         }
+        // If 13 digits, it's already milliseconds, no conversion needed
 
         // Validate timestamp range (between year 1970 and 3000)
         const minTs = 0;
