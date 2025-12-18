@@ -47,6 +47,14 @@ const tools = [
         screenshot: "/images/screenshots/cidr.svg",
         icon: "CIDR",
         active: true
+    },
+    {
+        name: "Cron Expression Tester",
+        url: "/cron-tester.html",
+        description: "Validate cron expressions and preview upcoming execution times",
+        screenshot: "/images/screenshots/cron.svg",
+        icon: "*/5",
+        active: true
     }
 ];
 
@@ -57,6 +65,11 @@ function renderActiveTools() {
 
     gallery.innerHTML = activeTools.map(tool => `
         <article class="tool-card">
+            <div class="tool-card-header">
+                <h2 class="text-lg font-semibold text-white">
+                    <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="tool-link">${tool.name}</a>
+                </h2>
+            </div>
             <div class="screenshot-container">
                 ${tool.screenshot
                     ? `<img src="${tool.screenshot}" alt="${tool.name} screenshot" width="800" height="450" loading="lazy">`
@@ -64,9 +77,6 @@ function renderActiveTools() {
                 }
             </div>
             <div class="tool-card-content">
-                <h2 class="text-lg font-semibold text-white mb-1">
-                    <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="tool-link">${tool.name}</a>
-                </h2>
                 <p class="text-dark-400 text-sm mb-4">${tool.description}</p>
                 <span class="open-tool-btn">
                     Open Tool

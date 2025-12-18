@@ -6,7 +6,10 @@
       "WebSearch",
       "Bash(npm install:*)",
       "Bash(npm run build:css:*)",
-      "Bash(docker build:*)"
+      "Bash(docker build:*)",
+      "Bash(/opt/homebrew/bin/npm run build:css)",
+      "Bash(/usr/local/bin/npm run build:css)",
+      "Bash(npx tailwindcss:*)"
     ]
   }
 }

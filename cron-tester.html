@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cron Expression Tester - codeutils.de</title>
+    <meta name="description" content="Free cron expression tester. Validate cron expressions and see upcoming execution times. Supports standard cron and extended syntax. No ads, no tracking.">
+    <meta name="keywords" content="cron tester, cron expression, cron validator, crontab, schedule tester, cron parser">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Cron Expression Tester - codeutils.de">
+    <meta property="og:description" content="Free cron expression tester. Validate and test cron schedules.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://codeutils.de/cron-tester.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cron Expression Tester - codeutils.de">
+    <meta name="twitter:description" content="Free cron expression tester. No ads, no tracking.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Klaro Consent Management -->
+    <script src="/js/klaro-config.js"></script>
+    <script defer data-config="klaroConfig" src="https://cdn.kiir.de/klaro/v0.7/klaro.js"></script>
+</head>
+<body class="bg-dark-950 text-dark-100 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="py-6 px-4 border-b border-dark-800">
+        <div class="max-w-7xl mx-auto">
+            <a href="/" class="inline-flex items-center text-dark-400 hover:text-emerald-400 transition-colors text-sm mb-4">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Tools
+            </a>
+            <h1 class="text-2xl md:text-3xl font-bold text-white">Cron Expression Tester</h1>
+            <p class="mt-1 text-dark-400 text-sm">Validate cron expressions and preview upcoming execution times</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Input Section -->
+            <div class="space-y-6">
+                <!-- Cron Expression Input -->
+                <div class="tool-card p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">Cron Expression</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="cron-input" class="block text-sm text-dark-400 mb-2">Enter cron expression</label>
+                            <div class="flex gap-2">
+                                <input
+                                    type="text"
+                                    id="cron-input"
+                                    class="tool-input flex-1 font-mono"
+                                    placeholder="*/5 * * * *"
+                                    autocomplete="off"
+                                    spellcheck="false"
+                                    value="*/5 * * * *"
+                                >
+                                <button id="test-btn" class="tool-btn-primary" data-primary-action>
+                                    Test
+                                </button>
+                            </div>
+                            <p id="cron-error" class="text-red-400 text-sm mt-2 hidden"></p>
+                        </div>
+
+                        <!-- Visual Cron Builder -->
+                        <div class="mt-4">
+                            <label class="block text-sm text-dark-400 mb-3">Visual Builder</label>
+                            <div class="grid grid-cols-5 gap-3">
+                                <div class="text-center">
+                                    <label class="text-xs text-dark-500 block mb-1">Minute</label>
+                                    <input type="text" id="field-minute" class="tool-input w-full text-center font-mono text-sm" value="*/5" placeholder="*">
+                                </div>
+                                <div class="text-center">
+                                    <label class="text-xs text-dark-500 block mb-1">Hour</label>
+                                    <input type="text" id="field-hour" class="tool-input w-full text-center font-mono text-sm" value="*" placeholder="*">
+                                </div>
+                                <div class="text-center">
+                                    <label class="text-xs text-dark-500 block mb-1">Day (M)</label>
+                                    <input type="text" id="field-day" class="tool-input w-full text-center font-mono text-sm" value="*" placeholder="*">
+                                </div>
+                                <div class="text-center">
+                                    <label class="text-xs text-dark-500 block mb-1">Month</label>
+                                    <input type="text" id="field-month" class="tool-input w-full text-center font-mono text-sm" value="*" placeholder="*">
+                                </div>
+                                <div class="text-center">
+                                    <label class="text-xs text-dark-500 block mb-1">Day (W)</label>
+                                    <input type="text" id="field-weekday" class="tool-input w-full text-center font-mono text-sm" value="*" placeholder="*">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Presets -->
+                        <div>
+                            <label class="block text-sm text-dark-400 mb-2">Common Presets</label>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="preset-btn" data-cron="* * * * *">Every minute</button>
+                                <button class="preset-btn" data-cron="*/5 * * * *">Every 5 min</button>
+                                <button class="preset-btn" data-cron="*/15 * * * *">Every 15 min</button>
+                                <button class="preset-btn" data-cron="0 * * * *">Every hour</button>
+                                <button class="preset-btn" data-cron="0 0 * * *">Daily (midnight)</button>
+                                <button class="preset-btn" data-cron="0 9 * * *">Daily (9 AM)</button>
+                                <button class="preset-btn" data-cron="0 0 * * 0">Weekly (Sun)</button>
+                                <button class="preset-btn" data-cron="0 0 * * 1">Weekly (Mon)</button>
+                                <button class="preset-btn" data-cron="0 0 1 * *">Monthly</button>
+                                <button class="preset-btn" data-cron="0 0 1 1 *">Yearly</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cron Syntax Reference -->
+                <div class="tool-card p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">Cron Syntax</h2>
+                    <div class="bg-dark-950 rounded-lg p-4 font-mono text-sm mb-4">
+                        <div class="text-dark-400">┌───────────── minute (0-59)</div>
+                        <div class="text-dark-400">│ ┌───────────── hour (0-23)</div>
+                        <div class="text-dark-400">│ │ ┌───────────── day of month (1-31)</div>
+                        <div class="text-dark-400">│ │ │ ┌───────────── month (1-12)</div>
+                        <div class="text-dark-400">│ │ │ │ ┌───────────── day of week (0-6, Sun=0)</div>
+                        <div class="text-dark-400">│ │ │ │ │</div>
+                        <div class="text-emerald-400">* * * * *</div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="text-dark-400 text-left">
+                                    <th class="pb-2">Symbol</th>
+                                    <th class="pb-2">Meaning</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-dark-300">
+                                <tr class="border-t border-dark-800">
+                                    <td class="py-2 text-emerald-400 font-mono">*</td>
+                                    <td class="py-2">Any value</td>
+                                </tr>
+                                <tr class="border-t border-dark-800">
+                                    <td class="py-2 text-emerald-400 font-mono">,</td>
+                                    <td class="py-2">Value list separator (1,3,5)</td>
+                                </tr>
+                                <tr class="border-t border-dark-800">
+                                    <td class="py-2 text-emerald-400 font-mono">-</td>
+                                    <td class="py-2">Range of values (1-5)</td>
+                                </tr>
+                                <tr class="border-t border-dark-800">
+                                    <td class="py-2 text-emerald-400 font-mono">/</td>
+                                    <td class="py-2">Step values (*/15 = every 15)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="space-y-6">
+                <!-- Human Readable Description -->
+                <div class="tool-card p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">Description</h2>
+                    <div id="cron-description" class="text-dark-300">
+                        <p class="text-emerald-400 font-medium">Every 5 minutes</p>
+                    </div>
+                </div>
+
+                <!-- Validation Status -->
+                <div id="validation-card" class="tool-card p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">Validation</h2>
+                    <div id="validation-status" class="flex items-center gap-3 p-4 rounded-lg bg-emerald-900/30">
+                        <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span class="text-emerald-400 font-medium">Valid cron expression</span>
+                    </div>
+                </div>
+
+                <!-- Upcoming Executions -->
+                <div id="results-card" class="tool-card p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-lg font-semibold text-white">Next Executions</h2>
+                        <span id="execution-count" class="text-sm text-dark-400">Next 3 runs</span>
+                    </div>
+
+                    <div id="results-placeholder" class="hidden text-center py-12 text-dark-500">
+                        <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <p>Enter a cron expression to see execution times</p>
+                    </div>
+
+                    <div id="results-content" class="space-y-2">
+                        <!-- Execution times will be inserted here -->
+                    </div>
+
+                    <div id="results-error" class="hidden text-center py-12">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-red-400 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                        </svg>
+                        <p class="text-red-400" id="results-error-message">Invalid cron expression</p>
+                    </div>
+                </div>
+
+                <!-- Examples -->
+                <div class="tool-card p-6">
+                    <h2 class="text-lg font-semibold text-white mb-4">Common Examples</h2>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between items-center p-2 rounded bg-dark-900 hover:bg-dark-800 cursor-pointer example-row" data-cron="0 0 * * *">
+                            <code class="text-emerald-400 font-mono">0 0 * * *</code>
+                            <span class="text-dark-400">Every day at midnight</span>
+                        </div>
+                        <div class="flex justify-between items-center p-2 rounded bg-dark-900 hover:bg-dark-800 cursor-pointer example-row" data-cron="0 */2 * * *">
+                            <code class="text-emerald-400 font-mono">0 */2 * * *</code>
+                            <span class="text-dark-400">Every 2 hours</span>
+                        </div>
+                        <div class="flex justify-between items-center p-2 rounded bg-dark-900 hover:bg-dark-800 cursor-pointer example-row" data-cron="0 9-17 * * 1-5">
+                            <code class="text-emerald-400 font-mono">0 9-17 * * 1-5</code>
+                            <span class="text-dark-400">Hourly 9-5, Mon-Fri</span>
+                        </div>
+                        <div class="flex justify-between items-center p-2 rounded bg-dark-900 hover:bg-dark-800 cursor-pointer example-row" data-cron="30 4 1,15 * *">
+                            <code class="text-emerald-400 font-mono">30 4 1,15 * *</code>
+                            <span class="text-dark-400">4:30 AM on 1st and 15th</span>
+                        </div>
+                        <div class="flex justify-between items-center p-2 rounded bg-dark-900 hover:bg-dark-800 cursor-pointer example-row" data-cron="0 0 * * 0">
+                            <code class="text-emerald-400 font-mono">0 0 * * 0</code>
+                            <span class="text-dark-400">Weekly on Sunday</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clear Button -->
+                <button id="clear-btn" class="tool-btn-ghost w-full" data-clear-action>
+                    Clear
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-dark-800 py-6 px-4 mt-auto">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-dark-500 text-xs">All validation runs client-side - your data stays private</p>
+            <div class="mt-2 flex justify-center gap-4 text-xs text-dark-500">
+                <a href="/" class="hover:text-dark-300 transition-colors">Home</a>
+                <span>|</span>
+                <a href="/impressum.html" class="hover:text-dark-300 transition-colors">Impressum</a>
+                <span>|</span>
+                <span>&copy; 2025 codeutils.de</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/js/common.js"></script>
+    <script src="/js/cron-tester.js"></script>
+</body>
+</html>

@@ -71,6 +71,12 @@
     font-size: 3rem;
 }
 
+/* Tool Card Header */
+.tool-card-header {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #334155;
+}
+
 /* Tool Card Content */
 .tool-card-content {
     padding: 1.25rem;

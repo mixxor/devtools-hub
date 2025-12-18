@@ -21,6 +21,7 @@ COPY impressum.html /usr/share/nginx/html/impressum.html
 COPY cidr-calculator.html /usr/share/nginx/html/cidr-calculator.html
 COPY timestamp-converter.html /usr/share/nginx/html/timestamp-converter.html
 COPY uuid-generator.html /usr/share/nginx/html/uuid-generator.html
+COPY cron-tester.html /usr/share/nginx/html/cron-tester.html
 COPY --from=builder /app/css/style.css /usr/share/nginx/html/css/style.css
 COPY js/ /usr/share/nginx/html/js/
 COPY images/ /usr/share/nginx/html/images/
