@@ -55,6 +55,14 @@ const tools = [
         screenshot: "/images/screenshots/cron.svg",
         icon: "*/5",
         active: true
+    },
+    {
+        name: "YAML Formatter & Linter",
+        url: "/yaml-formatter.html",
+        description: "Validate, format, and beautify YAML with syntax error detection",
+        screenshot: "/images/screenshots/yaml.svg",
+        icon: "YAML",
+        active: true
     }
 ];
 

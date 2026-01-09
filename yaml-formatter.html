@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-21G5RHJYF1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-21G5RHJYF1');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAML Formatter & Linter - codeutils.de</title>
+    <meta name="description" content="Free YAML formatter and linter. Validate, format, and beautify YAML files instantly. Detect syntax errors with line numbers. No ads, no tracking.">
+    <meta name="keywords" content="yaml formatter, yaml linter, yaml validator, yaml beautifier, yaml parser, yaml online, yaml syntax checker">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="YAML Formatter & Linter - codeutils.de">
+    <meta property="og:description" content="Free YAML formatter and linter. Validate and beautify YAML files.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://codeutils.de/yaml-formatter.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="YAML Formatter & Linter - codeutils.de">
+    <meta name="twitter:description" content="Free YAML formatter and linter. No ads, no tracking.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- js-yaml library for YAML parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+
+    <!-- Klaro Consent Management -->
+    <script src="/js/klaro-config.js"></script>
+    <script defer data-config="klaroConfig" src="https://cdn.kiir.de/klaro/v0.7/klaro.js"></script>
+</head>
+<body class="bg-dark-950 text-dark-100 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="py-6 px-4 border-b border-dark-800">
+        <div class="max-w-7xl mx-auto">
+            <a href="/" class="inline-flex items-center text-dark-400 hover:text-emerald-400 transition-colors text-sm mb-4">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Tools
+            </a>
+            <h1 class="text-2xl md:text-3xl font-bold text-white">YAML Formatter & Linter</h1>
+            <p class="mt-1 text-dark-400 text-sm">Validate, format, and beautify YAML with syntax error detection</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-8">
+        <!-- Input and Output Side by Side -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+            <!-- Input Section -->
+            <div class="tool-card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-lg font-semibold text-white">Input YAML</h2>
+                    <!-- Validation Status (inline) -->
+                    <div id="validation-status" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-dark-900 text-sm">
+                        <svg class="w-4 h-4 text-dark-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="text-dark-400">Enter YAML</span>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <textarea
+                        id="yaml-input"
+                        class="tool-input font-mono text-sm h-80 resize-y"
+                        placeholder="name: example
+version: 1.0.0
+dependencies:
+  - package1
+  - package2"
+                        spellcheck="false"
+                    ></textarea>
+
+                    <!-- Error Details (shown below input when invalid) -->
+                    <div id="error-card" class="hidden">
+                        <div id="error-details" class="space-y-2"></div>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button id="format-btn" class="tool-btn-primary flex-1" data-primary-action>
+                            Format & Validate
+                        </button>
+                        <button id="minify-btn" class="tool-btn-secondary">
+                            Minify
+                        </button>
+                        <button id="clear-btn" class="tool-btn-ghost" data-clear-action>
+                            Clear
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Output Section -->
+            <div class="tool-card p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-lg font-semibold text-white">Formatted Output</h2>
+                    <button id="copy-btn" class="result-copy-btn" title="Copy to clipboard">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        <span>Copy</span>
+                    </button>
+                </div>
+                <div id="output-placeholder" class="text-center py-16 text-dark-500">
+                    <svg class="w-12 h-12 mx-auto mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    <p>Formatted YAML will appear here</p>
+                </div>
+                <textarea
+                    id="yaml-output"
+                    class="tool-input font-mono text-sm h-80 resize-y hidden"
+                    readonly
+                    spellcheck="false"
+                ></textarea>
+            </div>
+        </div>
+
+        <!-- Options and Statistics Row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Format Options -->
+            <div class="tool-card p-5">
+                <h2 class="text-sm font-semibold text-white mb-3">Format Options</h2>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-dark-400">Indent</span>
+                        <div class="flex gap-1">
+                            <button class="indent-btn active" data-indent="2">2</button>
+                            <button class="indent-btn" data-indent="4">4</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-dark-400">Line width</span>
+                        <div class="flex gap-1">
+                            <button class="linewidth-btn active" data-linewidth="80">80</button>
+                            <button class="linewidth-btn" data-linewidth="120">120</button>
+                            <button class="linewidth-btn" data-linewidth="-1">None</button>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 pt-1">
+                        <input type="checkbox" id="sort-keys" class="w-3.5 h-3.5 accent-emerald-500">
+                        <label for="sort-keys" class="text-xs text-dark-300">Sort keys</label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="checkbox" id="flow-level" class="w-3.5 h-3.5 accent-emerald-500">
+                        <label for="flow-level" class="text-xs text-dark-300">Flow style arrays</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div id="stats-card" class="tool-card p-5">
+                <h2 class="text-sm font-semibold text-white mb-3">Statistics</h2>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="result-item">
+                        <span class="result-label text-xs">Lines</span>
+                        <span id="stat-lines" class="result-value text-emerald-400">0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label text-xs">Chars</span>
+                        <span id="stat-chars" class="result-value text-emerald-400">0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label text-xs">Keys</span>
+                        <span id="stat-keys" class="result-value text-emerald-400">0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label text-xs">Depth</span>
+                        <span id="stat-depth" class="result-value text-emerald-400">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example Presets -->
+            <div class="tool-card p-5">
+                <h2 class="text-sm font-semibold text-white mb-3">Examples</h2>
+                <div class="grid grid-cols-2 gap-2">
+                    <button class="example-btn-compact" data-example="kubernetes">
+                        <span class="text-emerald-400">Kubernetes</span>
+                    </button>
+                    <button class="example-btn-compact" data-example="docker-compose">
+                        <span class="text-emerald-400">Docker Compose</span>
+                    </button>
+                    <button class="example-btn-compact" data-example="github-actions">
+                        <span class="text-emerald-400">GitHub Actions</span>
+                    </button>
+                    <button class="example-btn-compact" data-example="invalid">
+                        <span class="text-red-400">Invalid YAML</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-dark-800 py-6 px-4 mt-auto">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-dark-500 text-xs">All formatting runs client-side - your data stays private</p>
+            <div class="mt-2 flex justify-center gap-4 text-xs text-dark-500">
+                <a href="/" class="hover:text-dark-300 transition-colors">Home</a>
+                <span>|</span>
+                <a href="/impressum.html" class="hover:text-dark-300 transition-colors">Impressum</a>
+                <span>|</span>
+                <span>&copy; 2025 codeutils.de</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/js/common.js"></script>
+    <script src="/js/yaml-formatter.js"></script>
+</body>
+</html>
