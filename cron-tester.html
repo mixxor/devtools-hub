@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) - with consent mode -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-21G5RHJYF1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
+      // Default consent to denied - Klaro will update when user accepts
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied'
+      });
+
+      gtag('js', new Date());
       gtag('config', 'G-21G5RHJYF1');
     </script>
 
@@ -37,7 +42,7 @@
 
     <!-- Klaro Consent Management -->
     <script src="/js/klaro-config.js"></script>
-    <script defer data-config="klaroConfig" src="https://cdn.kiir.de/klaro/v0.7/klaro.js"></script>
+    <script defer data-config="klaroConfig" src="https://cdn.kiprotect.com/klaro/latest/klaro.js"></script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -67,23 +72,35 @@
     </script>
 </head>
 <body class="bg-dark-950 text-dark-100 min-h-screen flex flex-col">
-    <!-- Header -->
+    <!-- Site Navigation -->
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <div class="site-nav-container">
+            <a href="/" class="site-nav-logo"><span class="accent">&lt;</span>codeutils<span class="accent">.de /&gt;</span></a>
+            <div class="nav-desktop">
+                <div id="nav-dropdown" class="nav-dropdown">
+                    <button id="nav-dropdown-trigger" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">All Tools <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <div id="nav-dropdown-menu" class="nav-dropdown-menu" role="menu">
+                        <div class="nav-dropdown-section"><div class="nav-dropdown-label">Encoding & Formatting</div><a href="/yaml-formatter.html" class="nav-dropdown-item" role="menuitem">YAML Formatter</a></div>
+                        <div class="nav-dropdown-section"><div class="nav-dropdown-label">Security</div><a href="/password-generator.html" class="nav-dropdown-item" role="menuitem">Password Generator</a><a href="/password-checker.html" class="nav-dropdown-item" role="menuitem">Password Checker</a></div>
+                        <div class="nav-dropdown-section"><div class="nav-dropdown-label">DevOps & Infrastructure</div><a href="/uuid-generator.html" class="nav-dropdown-item" role="menuitem">UUID Generator</a><a href="/timestamp-converter.html" class="nav-dropdown-item" role="menuitem">Timestamp Converter</a><a href="/cron-tester.html" class="nav-dropdown-item" role="menuitem">Cron Tester</a><a href="/cidr-calculator.html" class="nav-dropdown-item" role="menuitem">CIDR Calculator</a></div>
+                    </div>
+                </div>
+            </div>
+            <button id="nav-mobile-trigger" class="nav-mobile-trigger" aria-expanded="false" aria-controls="nav-mobile-menu" aria-label="Toggle menu"><span class="hamburger"><span></span><span></span><span></span></span></button>
+        </div>
+    </nav>
+    <div id="nav-mobile-menu" class="nav-mobile-menu" role="menu">
+        <div class="nav-mobile-section"><div class="nav-mobile-label">Encoding & Formatting</div><a href="/yaml-formatter.html" class="nav-mobile-item" role="menuitem">YAML Formatter</a></div>
+        <div class="nav-mobile-section"><div class="nav-mobile-label">Security</div><a href="/password-generator.html" class="nav-mobile-item" role="menuitem">Password Generator</a><a href="/password-checker.html" class="nav-mobile-item" role="menuitem">Password Checker</a></div>
+        <div class="nav-mobile-section"><div class="nav-mobile-label">DevOps & Infrastructure</div><a href="/uuid-generator.html" class="nav-mobile-item" role="menuitem">UUID Generator</a><a href="/timestamp-converter.html" class="nav-mobile-item" role="menuitem">Timestamp Converter</a><a href="/cron-tester.html" class="nav-mobile-item" role="menuitem">Cron Tester</a><a href="/cidr-calculator.html" class="nav-mobile-item" role="menuitem">CIDR Calculator</a></div>
+    </div>
     <header class="py-6 px-4 border-b border-dark-800">
         <div class="max-w-7xl mx-auto">
-            <!-- Breadcrumb -->
             <nav aria-label="Breadcrumb" class="mb-4">
                 <ol class="flex items-center gap-2 text-sm" itemscope itemtype="https://schema.org/BreadcrumbList">
-                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <a itemprop="item" href="/" class="text-dark-400 hover:text-emerald-400 transition-colors">
-                            <span itemprop="name">Home</span>
-                        </a>
-                        <meta itemprop="position" content="1" />
-                    </li>
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/" class="text-dark-400 hover:text-emerald-400 transition-colors"><span itemprop="name">Home</span></a><meta itemprop="position" content="1" /></li>
                     <li class="text-dark-600">/</li>
-                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <span itemprop="name" class="text-dark-300">Cron Tester</span>
-                        <meta itemprop="position" content="2" />
-                    </li>
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name" class="text-dark-300">Cron Tester</span><meta itemprop="position" content="2" /></li>
                 </ol>
             </nav>
             <h1 class="text-2xl md:text-3xl font-bold text-white">Cron Expression Tester</h1>
@@ -288,45 +305,50 @@
                 </button>
             </div>
         </div>
-        <!-- Related Tools Section -->
-        <section class="mt-12">
-            <h2 class="text-lg font-semibold text-white mb-4">Related Tools</h2>
-            <div class="flex flex-wrap gap-3">
-                <a href="/timestamp-converter.html" class="tool-btn-secondary text-sm">Timestamp Converter</a>
-                <a href="/uuid-generator.html" class="tool-btn-secondary text-sm">UUID Generator</a>
-                <a href="/yaml-formatter.html" class="tool-btn-secondary text-sm">YAML Formatter</a>
-            </div>
-        </section>
+        <!-- SEO Content + Related Tools Grid -->
+        <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- SEO Content Section (Left - 2 cols) -->
+            <section class="lg:col-span-2">
+                <h2 class="text-xl font-semibold text-white mb-4">What is a Cron Expression?</h2>
+                <div class="prose prose-invert text-dark-300 text-sm space-y-4">
+                    <p>A cron expression is a string representing a schedule for recurring tasks. Originally from Unix cron, it's now used in many systems including Kubernetes, GitHub Actions, and cloud schedulers.</p>
+                    <p>The standard format uses 5 fields: minute, hour, day of month, month, and day of week. Each field can contain specific values, ranges, wildcards (*), or step values (*/5).</p>
+                </div>
 
-        <!-- SEO Content Section -->
-        <section class="mt-12 max-w-3xl">
-            <h2 class="text-xl font-semibold text-white mb-4">What is a Cron Expression?</h2>
-            <div class="prose prose-invert text-dark-300 text-sm space-y-4">
-                <p>A cron expression is a string representing a schedule for recurring tasks. Originally from Unix cron, it's now used in many systems including Kubernetes, GitHub Actions, and cloud schedulers.</p>
-                <p>The standard format uses 5 fields: minute, hour, day of month, month, and day of week. Each field can contain specific values, ranges, wildcards (*), or step values (*/5).</p>
-            </div>
+                <!-- FAQ Section -->
+                <h3 class="text-lg font-semibold text-white mt-8 mb-4">Frequently Asked Questions</h3>
+                <div class="space-y-4">
+                    <details class="bg-dark-900 rounded-lg">
+                        <summary class="cursor-pointer p-4 text-white font-medium">What does * mean in cron?</summary>
+                        <p class="px-4 pb-4 text-dark-400 text-sm">The asterisk (*) is a wildcard meaning "every possible value" for that field. For example, * in the hour field means "every hour", while * in the day-of-week field means "every day".</p>
+                    </details>
+                    <details class="bg-dark-900 rounded-lg">
+                        <summary class="cursor-pointer p-4 text-white font-medium">How do I run a cron job every 5 minutes?</summary>
+                        <p class="px-4 pb-4 text-dark-400 text-sm">Use */5 in the minute field: "*/5 * * * *". The /5 is a step value that means "every 5th value". This runs at minutes 0, 5, 10, 15, etc.</p>
+                    </details>
+                    <details class="bg-dark-900 rounded-lg">
+                        <summary class="cursor-pointer p-4 text-white font-medium">What's the difference between 0 and * in cron?</summary>
+                        <p class="px-4 pb-4 text-dark-400 text-sm">0 is a specific value (e.g., minute 0, or Sunday), while * means all values. "0 * * * *" runs at minute 0 of every hour, but "* * * * *" runs every minute.</p>
+                    </details>
+                    <details class="bg-dark-900 rounded-lg">
+                        <summary class="cursor-pointer p-4 text-white font-medium">Is Sunday 0 or 7 in cron?</summary>
+                        <p class="px-4 pb-4 text-dark-400 text-sm">In standard cron, Sunday is 0 and Saturday is 6. However, some systems also accept 7 for Sunday. The days go: 0=Sunday, 1=Monday, 2=Tuesday, etc.</p>
+                    </details>
+                </div>
+            </section>
 
-            <!-- FAQ Section -->
-            <h3 class="text-lg font-semibold text-white mt-8 mb-4">Frequently Asked Questions</h3>
-            <div class="space-y-4">
-                <details class="bg-dark-900 rounded-lg">
-                    <summary class="cursor-pointer p-4 text-white font-medium">What does * mean in cron?</summary>
-                    <p class="px-4 pb-4 text-dark-400 text-sm">The asterisk (*) is a wildcard meaning "every possible value" for that field. For example, * in the hour field means "every hour", while * in the day-of-week field means "every day".</p>
-                </details>
-                <details class="bg-dark-900 rounded-lg">
-                    <summary class="cursor-pointer p-4 text-white font-medium">How do I run a cron job every 5 minutes?</summary>
-                    <p class="px-4 pb-4 text-dark-400 text-sm">Use */5 in the minute field: "*/5 * * * *". The /5 is a step value that means "every 5th value". This runs at minutes 0, 5, 10, 15, etc.</p>
-                </details>
-                <details class="bg-dark-900 rounded-lg">
-                    <summary class="cursor-pointer p-4 text-white font-medium">What's the difference between 0 and * in cron?</summary>
-                    <p class="px-4 pb-4 text-dark-400 text-sm">0 is a specific value (e.g., minute 0, or Sunday), while * means all values. "0 * * * *" runs at minute 0 of every hour, but "* * * * *" runs every minute.</p>
-                </details>
-                <details class="bg-dark-900 rounded-lg">
-                    <summary class="cursor-pointer p-4 text-white font-medium">Is Sunday 0 or 7 in cron?</summary>
-                    <p class="px-4 pb-4 text-dark-400 text-sm">In standard cron, Sunday is 0 and Saturday is 6. However, some systems also accept 7 for Sunday. The days go: 0=Sunday, 1=Monday, 2=Tuesday, etc.</p>
-                </details>
-            </div>
-        </section>
+            <!-- Related Tools Section (Right - 1 col) -->
+            <aside class="lg:col-span-1">
+                <div class="lg:sticky lg:top-20">
+                    <h2 class="text-lg font-semibold text-white mb-4">Related Tools</h2>
+                    <div class="flex flex-col gap-2">
+                        <a href="/timestamp-converter.html" class="tool-btn-secondary text-sm text-center">Timestamp Converter</a>
+                        <a href="/uuid-generator.html" class="tool-btn-secondary text-sm text-center">UUID Generator</a>
+                        <a href="/yaml-formatter.html" class="tool-btn-secondary text-sm text-center">YAML Formatter</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- FAQ Schema -->
@@ -388,5 +410,6 @@
     <!-- JavaScript -->
     <script src="/js/common.js"></script>
     <script src="/js/cron-tester.js"></script>
+    <script src="/js/nav.js"></script>
 </body>
 </html>

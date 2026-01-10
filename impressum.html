@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="de" class="dark">
 <head>
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) - with consent mode -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-21G5RHJYF1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
+      // Default consent to denied - Klaro will update when user accepts
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied'
+      });
+
+      gtag('js', new Date());
       gtag('config', 'G-21G5RHJYF1');
     </script>
 
@@ -24,7 +29,7 @@
 
     <!-- Klaro Consent Management -->
     <script src="/js/klaro-config.js"></script>
-    <script defer data-config="klaroConfig" src="https://cdn.kiir.de/klaro/v0.7/klaro.js"></script>
+    <script defer data-config="klaroConfig" src="https://cdn.kiprotect.com/klaro/latest/klaro.js"></script>
 </head>
 <body class="bg-dark-950 text-dark-100 min-h-screen">
     <!-- Header -->

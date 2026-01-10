@@ -11,7 +11,8 @@
       "Bash(/usr/local/bin/npm run build:css)",
       "Bash(npx tailwindcss:*)",
       "mcp__ide__getDiagnostics",
-      "WebFetch(domain:localhost)"
+      "WebFetch(domain:localhost)",
+      "WebFetch(domain:www.npmjs.com)"
     ]
   }
 }

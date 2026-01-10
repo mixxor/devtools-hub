@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) - with consent mode -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-21G5RHJYF1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
+      // Default consent to denied - Klaro will update when user accepts
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied'
+      });
+
+      gtag('js', new Date());
       gtag('config', 'G-21G5RHJYF1');
     </script>
 
@@ -37,7 +42,7 @@
 
     <!-- Klaro Consent Management -->
     <script src="/js/klaro-config.js"></script>
-    <script defer data-config="klaroConfig" src="https://cdn.kiir.de/klaro/v0.7/klaro.js"></script>
+    <script defer data-config="klaroConfig" src="https://cdn.kiprotect.com/klaro/latest/klaro.js"></script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -66,23 +71,35 @@
     </script>
 </head>
 <body class="bg-dark-950 text-dark-100 min-h-screen flex flex-col">
-    <!-- Header -->
+    <!-- Site Navigation -->
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <div class="site-nav-container">
+            <a href="/" class="site-nav-logo"><span class="accent">&lt;</span>codeutils<span class="accent">.de /&gt;</span></a>
+            <div class="nav-desktop">
+                <div id="nav-dropdown" class="nav-dropdown">
+                    <button id="nav-dropdown-trigger" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">All Tools <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                    <div id="nav-dropdown-menu" class="nav-dropdown-menu" role="menu">
+                        <div class="nav-dropdown-section"><div class="nav-dropdown-label">Encoding & Formatting</div><a href="/yaml-formatter.html" class="nav-dropdown-item" role="menuitem">YAML Formatter</a></div>
+                        <div class="nav-dropdown-section"><div class="nav-dropdown-label">Security</div><a href="/password-generator.html" class="nav-dropdown-item" role="menuitem">Password Generator</a><a href="/password-checker.html" class="nav-dropdown-item" role="menuitem">Password Checker</a></div>
+                        <div class="nav-dropdown-section"><div class="nav-dropdown-label">DevOps & Infrastructure</div><a href="/uuid-generator.html" class="nav-dropdown-item" role="menuitem">UUID Generator</a><a href="/timestamp-converter.html" class="nav-dropdown-item" role="menuitem">Timestamp Converter</a><a href="/cron-tester.html" class="nav-dropdown-item" role="menuitem">Cron Tester</a><a href="/cidr-calculator.html" class="nav-dropdown-item" role="menuitem">CIDR Calculator</a></div>
+                    </div>
+                </div>
+            </div>
+            <button id="nav-mobile-trigger" class="nav-mobile-trigger" aria-expanded="false" aria-controls="nav-mobile-menu" aria-label="Toggle menu"><span class="hamburger"><span></span><span></span><span></span></span></button>
+        </div>
+    </nav>
+    <div id="nav-mobile-menu" class="nav-mobile-menu" role="menu">
+        <div class="nav-mobile-section"><div class="nav-mobile-label">Encoding & Formatting</div><a href="/yaml-formatter.html" class="nav-mobile-item" role="menuitem">YAML Formatter</a></div>
+        <div class="nav-mobile-section"><div class="nav-mobile-label">Security</div><a href="/password-generator.html" class="nav-mobile-item" role="menuitem">Password Generator</a><a href="/password-checker.html" class="nav-mobile-item" role="menuitem">Password Checker</a></div>
+        <div class="nav-mobile-section"><div class="nav-mobile-label">DevOps & Infrastructure</div><a href="/uuid-generator.html" class="nav-mobile-item" role="menuitem">UUID Generator</a><a href="/timestamp-converter.html" class="nav-mobile-item" role="menuitem">Timestamp Converter</a><a href="/cron-tester.html" class="nav-mobile-item" role="menuitem">Cron Tester</a><a href="/cidr-calculator.html" class="nav-mobile-item" role="menuitem">CIDR Calculator</a></div>
+    </div>
     <header class="py-6 px-4 border-b border-dark-800">
         <div class="max-w-7xl mx-auto">
-            <!-- Breadcrumb -->
             <nav aria-label="Breadcrumb" class="mb-4">
                 <ol class="flex items-center gap-2 text-sm" itemscope itemtype="https://schema.org/BreadcrumbList">
-                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <a itemprop="item" href="/" class="text-dark-400 hover:text-emerald-400 transition-colors">
-                            <span itemprop="name">Home</span>
-                        </a>
-                        <meta itemprop="position" content="1" />
-                    </li>
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="/" class="text-dark-400 hover:text-emerald-400 transition-colors"><span itemprop="name">Home</span></a><meta itemprop="position" content="1" /></li>
                     <li class="text-dark-600">/</li>
-                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                        <span itemprop="name" class="text-dark-300">UUID Generator</span>
-                        <meta itemprop="position" content="2" />
-                    </li>
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name" class="text-dark-300">UUID Generator</span><meta itemprop="position" content="2" /></li>
                 </ol>
             </nav>
             <h1 class="text-2xl md:text-3xl font-bold text-white">UUID Generator</h1>
@@ -339,45 +356,50 @@
                 </div>
             </div>
         </div>
-        <!-- Related Tools Section -->
-        <section class="mt-12">
-            <h2 class="text-lg font-semibold text-white mb-4">Related Tools</h2>
-            <div class="flex flex-wrap gap-3">
-                <a href="/timestamp-converter.html" class="tool-btn-secondary text-sm">Timestamp Converter</a>
-                <a href="/password-generator.html" class="tool-btn-secondary text-sm">Password Generator</a>
-                <a href="https://www.base64decoder.de" target="_blank" rel="noopener noreferrer" class="tool-btn-secondary text-sm">Base64 Decoder</a>
-            </div>
-        </section>
+        <!-- SEO Content + Related Tools Grid -->
+        <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- SEO Content Section (Left - 2 cols) -->
+            <section class="lg:col-span-2">
+                <h2 class="text-xl font-semibold text-white mb-4">What is a UUID?</h2>
+                <div class="prose prose-invert text-dark-300 text-sm space-y-4">
+                    <p>A UUID (Universally Unique Identifier), also known as GUID (Globally Unique Identifier), is a 128-bit identifier designed to be unique across space and time. UUIDs are commonly used in databases, distributed systems, and software development to uniquely identify records without central coordination.</p>
+                    <p>Version 4 UUIDs are the most commonly used type, generated using random or pseudo-random numbers. They have a very low probability of collision, making them suitable for most applications.</p>
+                </div>
 
-        <!-- SEO Content Section -->
-        <section class="mt-12 max-w-3xl">
-            <h2 class="text-xl font-semibold text-white mb-4">What is a UUID?</h2>
-            <div class="prose prose-invert text-dark-300 text-sm space-y-4">
-                <p>A UUID (Universally Unique Identifier), also known as GUID (Globally Unique Identifier), is a 128-bit identifier designed to be unique across space and time. UUIDs are commonly used in databases, distributed systems, and software development to uniquely identify records without central coordination.</p>
-                <p>Version 4 UUIDs are the most commonly used type, generated using random or pseudo-random numbers. They have a very low probability of collision, making them suitable for most applications.</p>
-            </div>
+                <!-- FAQ Section -->
+                <h3 class="text-lg font-semibold text-white mt-8 mb-4">Frequently Asked Questions</h3>
+                <div class="space-y-4">
+                    <details class="bg-dark-900 rounded-lg">
+                        <summary class="cursor-pointer p-4 text-white font-medium">What is the difference between UUID and GUID?</summary>
+                        <p class="px-4 pb-4 text-dark-400 text-sm">UUID and GUID are essentially the same thing. UUID is the standard term defined by RFC 4122, while GUID is Microsoft's implementation. Both refer to a 128-bit identifier formatted as 32 hexadecimal characters with hyphens.</p>
+                    </details>
+                    <details class="bg-dark-900 rounded-lg">
+                        <summary class="cursor-pointer p-4 text-white font-medium">Are UUIDs truly unique?</summary>
+                        <p class="px-4 pb-4 text-dark-400 text-sm">UUID v4 has approximately 5.3 x 10^36 possible values. The probability of generating two identical UUIDs is astronomically low (about 1 in 2^122). For practical purposes, they can be considered unique.</p>
+                    </details>
+                    <details class="bg-dark-900 rounded-lg">
+                        <summary class="cursor-pointer p-4 text-white font-medium">What do the different UUID versions mean?</summary>
+                        <p class="px-4 pb-4 text-dark-400 text-sm">UUID versions indicate how they're generated: v1 uses timestamp + MAC address, v3/v5 use namespace + name hashing (MD5/SHA-1), v4 is random, and v7 uses Unix timestamp + random. The version is encoded in the 13th character.</p>
+                    </details>
+                    <details class="bg-dark-900 rounded-lg">
+                        <summary class="cursor-pointer p-4 text-white font-medium">Should I use UUID v4 or v7?</summary>
+                        <p class="px-4 pb-4 text-dark-400 text-sm">UUID v4 is best for general use where ordering doesn't matter. UUID v7 is better for database primary keys because it's time-sortable, which improves index performance in B-tree databases.</p>
+                    </details>
+                </div>
+            </section>
 
-            <!-- FAQ Section -->
-            <h3 class="text-lg font-semibold text-white mt-8 mb-4">Frequently Asked Questions</h3>
-            <div class="space-y-4">
-                <details class="bg-dark-900 rounded-lg">
-                    <summary class="cursor-pointer p-4 text-white font-medium">What is the difference between UUID and GUID?</summary>
-                    <p class="px-4 pb-4 text-dark-400 text-sm">UUID and GUID are essentially the same thing. UUID is the standard term defined by RFC 4122, while GUID is Microsoft's implementation. Both refer to a 128-bit identifier formatted as 32 hexadecimal characters with hyphens.</p>
-                </details>
-                <details class="bg-dark-900 rounded-lg">
-                    <summary class="cursor-pointer p-4 text-white font-medium">Are UUIDs truly unique?</summary>
-                    <p class="px-4 pb-4 text-dark-400 text-sm">UUID v4 has approximately 5.3 x 10^36 possible values. The probability of generating two identical UUIDs is astronomically low (about 1 in 2^122). For practical purposes, they can be considered unique.</p>
-                </details>
-                <details class="bg-dark-900 rounded-lg">
-                    <summary class="cursor-pointer p-4 text-white font-medium">What do the different UUID versions mean?</summary>
-                    <p class="px-4 pb-4 text-dark-400 text-sm">UUID versions indicate how they're generated: v1 uses timestamp + MAC address, v3/v5 use namespace + name hashing (MD5/SHA-1), v4 is random, and v7 uses Unix timestamp + random. The version is encoded in the 13th character.</p>
-                </details>
-                <details class="bg-dark-900 rounded-lg">
-                    <summary class="cursor-pointer p-4 text-white font-medium">Should I use UUID v4 or v7?</summary>
-                    <p class="px-4 pb-4 text-dark-400 text-sm">UUID v4 is best for general use where ordering doesn't matter. UUID v7 is better for database primary keys because it's time-sortable, which improves index performance in B-tree databases.</p>
-                </details>
-            </div>
-        </section>
+            <!-- Related Tools Section (Right - 1 col) -->
+            <aside class="lg:col-span-1">
+                <div class="lg:sticky lg:top-20">
+                    <h2 class="text-lg font-semibold text-white mb-4">Related Tools</h2>
+                    <div class="flex flex-col gap-2">
+                        <a href="/timestamp-converter.html" class="tool-btn-secondary text-sm text-center">Timestamp Converter</a>
+                        <a href="/password-generator.html" class="tool-btn-secondary text-sm text-center">Password Generator</a>
+                        <a href="https://www.base64decoder.de" target="_blank" rel="noopener noreferrer" class="tool-btn-secondary text-sm text-center">Base64 Decoder</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- FAQ Schema -->
@@ -439,5 +461,6 @@
     <!-- JavaScript -->
     <script src="/js/common.js"></script>
     <script src="/js/uuid-generator.js"></script>
+    <script src="/js/nav.js"></script>
 </body>
 </html>
