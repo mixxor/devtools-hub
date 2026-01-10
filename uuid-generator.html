@@ -13,9 +13,10 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UUID Generator - codeutils.de</title>
+    <title>Free UUID Generator - Random UUID/GUID Generator | codeutils.de</title>
     <meta name="description" content="Free UUID generator tool. Generate random UUIDs (v4), validate UUIDs, and convert between formats. No ads, no tracking.">
     <meta name="keywords" content="UUID generator, GUID generator, random UUID, UUID v4, UUID validator">
+    <link rel="canonical" href="https://codeutils.de/uuid-generator.html">
 
     <!-- Open Graph -->
     <meta property="og:title" content="UUID Generator - codeutils.de">
@@ -37,17 +38,53 @@
     <!-- Klaro Consent Management -->
     <script src="/js/klaro-config.js"></script>
     <script defer data-config="klaroConfig" src="https://cdn.kiir.de/klaro/v0.7/klaro.js"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "UUID Generator",
+        "description": "Free online UUID generator. Generate random UUIDs (v4), validate UUIDs, and convert between formats.",
+        "url": "https://codeutils.de/uuid-generator.html",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "featureList": [
+            "UUID v4 generation",
+            "Bulk UUID generation",
+            "UUID validation",
+            "Multiple output formats",
+            "Cryptographically secure randomness"
+        ]
+    }
+    </script>
 </head>
 <body class="bg-dark-950 text-dark-100 min-h-screen flex flex-col">
     <!-- Header -->
     <header class="py-6 px-4 border-b border-dark-800">
         <div class="max-w-7xl mx-auto">
-            <a href="/" class="inline-flex items-center text-dark-400 hover:text-emerald-400 transition-colors text-sm mb-4">
-                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-                Back to Tools
-            </a>
+            <!-- Breadcrumb -->
+            <nav aria-label="Breadcrumb" class="mb-4">
+                <ol class="flex items-center gap-2 text-sm" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="/" class="text-dark-400 hover:text-emerald-400 transition-colors">
+                            <span itemprop="name">Home</span>
+                        </a>
+                        <meta itemprop="position" content="1" />
+                    </li>
+                    <li class="text-dark-600">/</li>
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <span itemprop="name" class="text-dark-300">UUID Generator</span>
+                        <meta itemprop="position" content="2" />
+                    </li>
+                </ol>
+            </nav>
             <h1 class="text-2xl md:text-3xl font-bold text-white">UUID Generator</h1>
             <p class="mt-1 text-dark-400 text-sm">Generate random UUIDs (v4), validate UUIDs, and convert between formats</p>
         </div>
@@ -302,7 +339,88 @@
                 </div>
             </div>
         </div>
+        <!-- Related Tools Section -->
+        <section class="mt-12">
+            <h2 class="text-lg font-semibold text-white mb-4">Related Tools</h2>
+            <div class="flex flex-wrap gap-3">
+                <a href="/timestamp-converter.html" class="tool-btn-secondary text-sm">Timestamp Converter</a>
+                <a href="/password-generator.html" class="tool-btn-secondary text-sm">Password Generator</a>
+                <a href="https://www.base64decoder.de" target="_blank" rel="noopener noreferrer" class="tool-btn-secondary text-sm">Base64 Decoder</a>
+            </div>
+        </section>
+
+        <!-- SEO Content Section -->
+        <section class="mt-12 max-w-3xl">
+            <h2 class="text-xl font-semibold text-white mb-4">What is a UUID?</h2>
+            <div class="prose prose-invert text-dark-300 text-sm space-y-4">
+                <p>A UUID (Universally Unique Identifier), also known as GUID (Globally Unique Identifier), is a 128-bit identifier designed to be unique across space and time. UUIDs are commonly used in databases, distributed systems, and software development to uniquely identify records without central coordination.</p>
+                <p>Version 4 UUIDs are the most commonly used type, generated using random or pseudo-random numbers. They have a very low probability of collision, making them suitable for most applications.</p>
+            </div>
+
+            <!-- FAQ Section -->
+            <h3 class="text-lg font-semibold text-white mt-8 mb-4">Frequently Asked Questions</h3>
+            <div class="space-y-4">
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">What is the difference between UUID and GUID?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">UUID and GUID are essentially the same thing. UUID is the standard term defined by RFC 4122, while GUID is Microsoft's implementation. Both refer to a 128-bit identifier formatted as 32 hexadecimal characters with hyphens.</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">Are UUIDs truly unique?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">UUID v4 has approximately 5.3 x 10^36 possible values. The probability of generating two identical UUIDs is astronomically low (about 1 in 2^122). For practical purposes, they can be considered unique.</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">What do the different UUID versions mean?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">UUID versions indicate how they're generated: v1 uses timestamp + MAC address, v3/v5 use namespace + name hashing (MD5/SHA-1), v4 is random, and v7 uses Unix timestamp + random. The version is encoded in the 13th character.</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">Should I use UUID v4 or v7?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">UUID v4 is best for general use where ordering doesn't matter. UUID v7 is better for database primary keys because it's time-sortable, which improves index performance in B-tree databases.</p>
+                </details>
+            </div>
+        </section>
     </main>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the difference between UUID and GUID?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "UUID and GUID are essentially the same thing. UUID is the standard term defined by RFC 4122, while GUID is Microsoft's implementation. Both refer to a 128-bit identifier formatted as 32 hexadecimal characters with hyphens."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are UUIDs truly unique?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "UUID v4 has approximately 5.3 x 10^36 possible values. The probability of generating two identical UUIDs is astronomically low (about 1 in 2^122). For practical purposes, they can be considered unique."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What do the different UUID versions mean?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "UUID versions indicate how they're generated: v1 uses timestamp + MAC address, v3/v5 use namespace + name hashing (MD5/SHA-1), v4 is random, and v7 uses Unix timestamp + random. The version is encoded in the 13th character."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I use UUID v4 or v7?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "UUID v4 is best for general use where ordering doesn't matter. UUID v7 is better for database primary keys because it's time-sortable, which improves index performance in B-tree databases."
+                }
+            }
+        ]
+    }
+    </script>
 
     <!-- Footer -->
     <footer class="border-t border-dark-800 py-6 px-4 mt-auto">

@@ -13,9 +13,10 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timestamp Converter - codeutils.de</title>
+    <title>Free Unix Timestamp Converter - Epoch to Date | codeutils.de</title>
     <meta name="description" content="Free Unix timestamp converter. Convert between Unix timestamps and human-readable dates. Supports seconds and milliseconds. No ads, no tracking.">
     <meta name="keywords" content="timestamp converter, unix timestamp, epoch converter, date converter, time converter">
+    <link rel="canonical" href="https://codeutils.de/timestamp-converter.html">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Timestamp Converter - codeutils.de">
@@ -37,17 +38,54 @@
     <!-- Klaro Consent Management -->
     <script src="/js/klaro-config.js"></script>
     <script defer data-config="klaroConfig" src="https://cdn.kiir.de/klaro/v0.7/klaro.js"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Unix Timestamp Converter",
+        "description": "Free online Unix timestamp converter. Convert between epoch timestamps and human-readable dates.",
+        "url": "https://codeutils.de/timestamp-converter.html",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "featureList": [
+            "Unix timestamp to date conversion",
+            "Date to timestamp conversion",
+            "Seconds and milliseconds support",
+            "Multiple timezone support",
+            "ISO 8601 and RFC 2822 formats",
+            "Relative time display"
+        ]
+    }
+    </script>
 </head>
 <body class="bg-dark-950 text-dark-100 min-h-screen flex flex-col">
     <!-- Header -->
     <header class="py-6 px-4 border-b border-dark-800">
         <div class="max-w-7xl mx-auto">
-            <a href="/" class="inline-flex items-center text-dark-400 hover:text-emerald-400 transition-colors text-sm mb-4">
-                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-                Back to Tools
-            </a>
+            <!-- Breadcrumb -->
+            <nav aria-label="Breadcrumb" class="mb-4">
+                <ol class="flex items-center gap-2 text-sm" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="/" class="text-dark-400 hover:text-emerald-400 transition-colors">
+                            <span itemprop="name">Home</span>
+                        </a>
+                        <meta itemprop="position" content="1" />
+                    </li>
+                    <li class="text-dark-600">/</li>
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <span itemprop="name" class="text-dark-300">Timestamp Converter</span>
+                        <meta itemprop="position" content="2" />
+                    </li>
+                </ol>
+            </nav>
             <h1 class="text-2xl md:text-3xl font-bold text-white">Timestamp Converter</h1>
             <p class="mt-1 text-dark-400 text-sm">Convert between Unix timestamps and human-readable dates</p>
         </div>
@@ -338,7 +376,88 @@
                 </div>
             </div>
         </div>
+        <!-- Related Tools Section -->
+        <section class="mt-12">
+            <h2 class="text-lg font-semibold text-white mb-4">Related Tools</h2>
+            <div class="flex flex-wrap gap-3">
+                <a href="/cron-tester.html" class="tool-btn-secondary text-sm">Cron Tester</a>
+                <a href="/uuid-generator.html" class="tool-btn-secondary text-sm">UUID Generator</a>
+                <a href="https://www.jsonformat.de" target="_blank" rel="noopener noreferrer" class="tool-btn-secondary text-sm">JSON Formatter</a>
+            </div>
+        </section>
+
+        <!-- SEO Content Section -->
+        <section class="mt-12 max-w-3xl">
+            <h2 class="text-xl font-semibold text-white mb-4">What is a Unix Timestamp?</h2>
+            <div class="prose prose-invert text-dark-300 text-sm space-y-4">
+                <p>A Unix timestamp (also called Epoch time or POSIX time) is the number of seconds that have elapsed since January 1, 1970, at 00:00:00 UTC. It provides a universal way to represent time across different systems and timezones.</p>
+                <p>Unix timestamps are widely used in programming, databases, APIs, and log files because they're timezone-independent and easy to calculate with.</p>
+            </div>
+
+            <!-- FAQ Section -->
+            <h3 class="text-lg font-semibold text-white mt-8 mb-4">Frequently Asked Questions</h3>
+            <div class="space-y-4">
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">What is the Unix epoch?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">The Unix epoch is January 1, 1970, at 00:00:00 UTC. This date was chosen as the starting point for Unix time. Timestamps before this date are negative numbers.</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">What's the difference between seconds and milliseconds?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">Unix timestamps in seconds are 10 digits (e.g., 1702857600), while milliseconds are 13 digits (e.g., 1702857600000). JavaScript's Date.now() returns milliseconds, while many systems use seconds.</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">What is the Year 2038 problem?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">32-bit systems store timestamps as signed integers, which overflow on January 19, 2038. Modern 64-bit systems use 64-bit timestamps, extending the range to billions of years.</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">How do I get the current Unix timestamp?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">In JavaScript: Math.floor(Date.now() / 1000). In Python: import time; time.time(). In PHP: time(). In Bash: date +%s. This tool also shows the current timestamp live.</p>
+                </details>
+            </div>
+        </section>
     </main>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the Unix epoch?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Unix epoch is January 1, 1970, at 00:00:00 UTC. This date was chosen as the starting point for Unix time. Timestamps before this date are negative numbers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's the difference between seconds and milliseconds?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Unix timestamps in seconds are 10 digits (e.g., 1702857600), while milliseconds are 13 digits (e.g., 1702857600000). JavaScript's Date.now() returns milliseconds, while many systems use seconds."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the Year 2038 problem?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "32-bit systems store timestamps as signed integers, which overflow on January 19, 2038. Modern 64-bit systems use 64-bit timestamps, extending the range to billions of years."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I get the current Unix timestamp?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "In JavaScript: Math.floor(Date.now() / 1000). In Python: import time; time.time(). In PHP: time(). In Bash: date +%s. This tool also shows the current timestamp live."
+                }
+            }
+        ]
+    }
+    </script>
 
     <!-- Footer -->
     <footer class="border-t border-dark-800 py-6 px-4 mt-auto">

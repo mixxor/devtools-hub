@@ -13,9 +13,10 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIDR Calculator - codeutils.de</title>
+    <title>Free CIDR Calculator - Subnet & IP Range Calculator | codeutils.de</title>
     <meta name="description" content="Free CIDR calculator and IP range tool. Calculate network addresses, subnet masks, usable hosts, and convert between CIDR and IP ranges. No ads, no tracking.">
     <meta name="keywords" content="CIDR calculator, IP range, subnet calculator, network calculator, IP address, subnet mask">
+    <link rel="canonical" href="https://codeutils.de/cidr-calculator.html">
 
     <!-- Open Graph -->
     <meta property="og:title" content="CIDR Calculator - codeutils.de">
@@ -37,17 +38,54 @@
     <!-- Klaro Consent Management -->
     <script src="/js/klaro-config.js"></script>
     <script defer data-config="klaroConfig" src="https://cdn.kiir.de/klaro/v0.7/klaro.js"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CIDR Calculator",
+        "description": "Free online CIDR calculator. Calculate network addresses, subnet masks, usable hosts, and IP ranges.",
+        "url": "https://codeutils.de/cidr-calculator.html",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "featureList": [
+            "CIDR to IP range conversion",
+            "Subnet mask calculation",
+            "Network and broadcast address calculation",
+            "Usable hosts calculation",
+            "IP range to CIDR conversion",
+            "IP address validation"
+        ]
+    }
+    </script>
 </head>
 <body class="bg-dark-950 text-dark-100 min-h-screen flex flex-col">
     <!-- Header -->
     <header class="py-6 px-4 border-b border-dark-800">
         <div class="max-w-7xl mx-auto">
-            <a href="/" class="inline-flex items-center text-dark-400 hover:text-emerald-400 transition-colors text-sm mb-4">
-                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-                Back to Tools
-            </a>
+            <!-- Breadcrumb -->
+            <nav aria-label="Breadcrumb" class="mb-4">
+                <ol class="flex items-center gap-2 text-sm" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="/" class="text-dark-400 hover:text-emerald-400 transition-colors">
+                            <span itemprop="name">Home</span>
+                        </a>
+                        <meta itemprop="position" content="1" />
+                    </li>
+                    <li class="text-dark-600">/</li>
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <span itemprop="name" class="text-dark-300">CIDR Calculator</span>
+                        <meta itemprop="position" content="2" />
+                    </li>
+                </ol>
+            </nav>
             <h1 class="text-2xl md:text-3xl font-bold text-white">CIDR Calculator</h1>
             <p class="mt-1 text-dark-400 text-sm">Calculate IP ranges, subnet masks, and network information from CIDR notation</p>
         </div>
@@ -308,7 +346,88 @@
                 </div>
             </div>
         </div>
+        <!-- Related Tools Section -->
+        <section class="mt-12">
+            <h2 class="text-lg font-semibold text-white mb-4">Related Tools</h2>
+            <div class="flex flex-wrap gap-3">
+                <a href="/uuid-generator.html" class="tool-btn-secondary text-sm">UUID Generator</a>
+                <a href="/timestamp-converter.html" class="tool-btn-secondary text-sm">Timestamp Converter</a>
+                <a href="https://www.base64decoder.de" target="_blank" rel="noopener noreferrer" class="tool-btn-secondary text-sm">Base64 Decoder</a>
+            </div>
+        </section>
+
+        <!-- SEO Content Section -->
+        <section class="mt-12 max-w-3xl">
+            <h2 class="text-xl font-semibold text-white mb-4">What is CIDR Notation?</h2>
+            <div class="prose prose-invert text-dark-300 text-sm space-y-4">
+                <p>CIDR (Classless Inter-Domain Routing) notation is a compact way to specify IP address ranges. It combines an IP address with a prefix length (e.g., 192.168.1.0/24) to define network boundaries.</p>
+                <p>The prefix length indicates how many bits of the IP address are used for the network portion. A /24 network has 256 addresses (254 usable), while a /16 has 65,536 addresses.</p>
+            </div>
+
+            <!-- FAQ Section -->
+            <h3 class="text-lg font-semibold text-white mt-8 mb-4">Frequently Asked Questions</h3>
+            <div class="space-y-4">
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">What does /24 mean in CIDR?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">A /24 prefix means 24 bits are used for the network address, leaving 8 bits for host addresses. This gives you 256 total addresses (2^8), with 254 usable for hosts after subtracting the network and broadcast addresses.</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">How do I calculate subnet mask from CIDR?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">The subnet mask is derived by setting the first N bits to 1 (where N is the prefix length) and the remaining bits to 0. For example, /24 gives 255.255.255.0 (24 ones followed by 8 zeros in binary).</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">What is the difference between network and broadcast address?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">The network address is the first IP in the range (all host bits set to 0) and identifies the network itself. The broadcast address is the last IP (all host bits set to 1) and is used to send data to all hosts in the network.</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">How many usable hosts in a /30 network?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">A /30 network has 4 total addresses (2^2) but only 2 usable hosts. The network and broadcast addresses cannot be assigned to devices. /30 networks are commonly used for point-to-point links between routers.</p>
+                </details>
+            </div>
+        </section>
     </main>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What does /24 mean in CIDR?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A /24 prefix means 24 bits are used for the network address, leaving 8 bits for host addresses. This gives you 256 total addresses (2^8), with 254 usable for hosts after subtracting the network and broadcast addresses."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I calculate subnet mask from CIDR?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The subnet mask is derived by setting the first N bits to 1 (where N is the prefix length) and the remaining bits to 0. For example, /24 gives 255.255.255.0 (24 ones followed by 8 zeros in binary)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the difference between network and broadcast address?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The network address is the first IP in the range (all host bits set to 0) and identifies the network itself. The broadcast address is the last IP (all host bits set to 1) and is used to send data to all hosts in the network."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How many usable hosts in a /30 network?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A /30 network has 4 total addresses (2^2) but only 2 usable hosts. The network and broadcast addresses cannot be assigned to devices. /30 networks are commonly used for point-to-point links between routers."
+                }
+            }
+        ]
+    }
+    </script>
 
     <!-- Footer -->
     <footer class="border-t border-dark-800 py-6 px-4 mt-auto">

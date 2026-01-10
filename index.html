@@ -13,9 +13,10 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>codeutils.de - Free Developer Tools</title>
-    <meta name="description" content="Free developer tools for encoding, formatting, and converting data. No ads, no tracking. All tools run client-side.">
-    <meta name="keywords" content="developer tools, base64, json formatter, url encoder, uuid generator, regex tester">
+    <title>Free Online Developer Tools - JSON, YAML, UUID, Password Generator | codeutils.de</title>
+    <meta name="description" content="Free developer tools for encoding, formatting, and converting data. JSON/YAML formatter, UUID generator, password tools, CIDR calculator, and more. No ads, no tracking. All tools run client-side.">
+    <meta name="keywords" content="developer tools, base64, json formatter, yaml formatter, uuid generator, password generator, cidr calculator, cron tester, timestamp converter">
+    <link rel="canonical" href="https://codeutils.de/">
 
     <!-- Open Graph -->
     <meta property="og:title" content="codeutils.de - Free Developer Tools">
@@ -38,6 +39,71 @@
     <!-- Klaro Consent Management -->
     <script src="/js/klaro-config.js"></script>
     <script defer data-config="klaroConfig" src="https://cdn.kiir.de/klaro/v0.7/klaro.js"></script>
+
+    <!-- Structured Data - WebSite -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "codeutils.de",
+        "description": "Free developer tools for encoding, formatting, and converting data. All tools run client-side for privacy.",
+        "url": "https://codeutils.de"
+    }
+    </script>
+
+    <!-- Structured Data - ItemList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Developer Tools",
+        "description": "Collection of free online developer tools",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "YAML Formatter & Linter",
+                "url": "https://codeutils.de/yaml-formatter.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Password Generator",
+                "url": "https://codeutils.de/password-generator.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Password Strength Checker",
+                "url": "https://codeutils.de/password-checker.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "UUID Generator",
+                "url": "https://codeutils.de/uuid-generator.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "Timestamp Converter",
+                "url": "https://codeutils.de/timestamp-converter.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 6,
+                "name": "Cron Expression Tester",
+                "url": "https://codeutils.de/cron-tester.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 7,
+                "name": "CIDR Calculator",
+                "url": "https://codeutils.de/cidr-calculator.html"
+            }
+        ]
+    }
+    </script>
 </head>
 <body class="bg-dark-950 text-dark-100 min-h-screen">
     <!-- Header -->
@@ -230,7 +296,72 @@
                 <!-- Coming soon tools will be injected by JavaScript -->
             </div>
         </section>
+
+        <!-- FAQ Section -->
+        <section class="mt-16 max-w-3xl mx-auto">
+            <h2 class="text-xl font-semibold text-white mb-6 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">Are these tools really free?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">Yes, all tools are completely free to use with no hidden costs, subscriptions, or premium tiers. We believe developer tools should be accessible to everyone.</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">Is my data safe when using these tools?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">Absolutely. All tools run entirely in your browser using JavaScript. Your data is never sent to any server. You can verify this by checking your browser's network tab or using the tools offline.</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">Do I need to create an account?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">No account is required. All tools work instantly without registration, login, or any personal information. Just open a tool and start using it.</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">Can I use these tools offline?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">Most tools work offline after the initial page load since they run entirely in your browser. Bookmark your favorite tools for quick access anytime.</p>
+                </details>
+            </div>
+        </section>
     </main>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Are these tools really free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, all tools are completely free to use with no hidden costs, subscriptions, or premium tiers. We believe developer tools should be accessible to everyone."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is my data safe when using these tools?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely. All tools run entirely in your browser using JavaScript. Your data is never sent to any server. You can verify this by checking your browser's network tab or using the tools offline."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need to create an account?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No account is required. All tools work instantly without registration, login, or any personal information. Just open a tool and start using it."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use these tools offline?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most tools work offline after the initial page load since they run entirely in your browser. Bookmark your favorite tools for quick access anytime."
+                }
+            }
+        ]
+    }
+    </script>
 
     <!-- Footer -->
     <footer class="border-t border-dark-800 py-8 px-4">

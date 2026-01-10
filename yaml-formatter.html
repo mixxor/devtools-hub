@@ -13,9 +13,10 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YAML Formatter & Linter - codeutils.de</title>
+    <title>Online YAML Formatter & Linter - Free YAML Validator | codeutils.de</title>
     <meta name="description" content="Free YAML formatter and linter. Validate, format, and beautify YAML files instantly. Detect syntax errors with line numbers. No ads, no tracking.">
     <meta name="keywords" content="yaml formatter, yaml linter, yaml validator, yaml beautifier, yaml parser, yaml online, yaml syntax checker">
+    <link rel="canonical" href="https://codeutils.de/yaml-formatter.html">
 
     <!-- Open Graph -->
     <meta property="og:title" content="YAML Formatter & Linter - codeutils.de">
@@ -40,17 +41,54 @@
     <!-- Klaro Consent Management -->
     <script src="/js/klaro-config.js"></script>
     <script defer data-config="klaroConfig" src="https://cdn.kiir.de/klaro/v0.7/klaro.js"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "YAML Formatter & Linter",
+        "description": "Free online YAML formatter and linter. Validate, format, and beautify YAML files instantly.",
+        "url": "https://codeutils.de/yaml-formatter.html",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "featureList": [
+            "YAML syntax validation",
+            "YAML formatting and beautification",
+            "YAML minification",
+            "Configurable indentation",
+            "Key sorting",
+            "Error detection with line numbers"
+        ]
+    }
+    </script>
 </head>
 <body class="bg-dark-950 text-dark-100 min-h-screen flex flex-col">
     <!-- Header -->
     <header class="py-6 px-4 border-b border-dark-800">
         <div class="max-w-7xl mx-auto">
-            <a href="/" class="inline-flex items-center text-dark-400 hover:text-emerald-400 transition-colors text-sm mb-4">
-                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-                Back to Tools
-            </a>
+            <!-- Breadcrumb -->
+            <nav aria-label="Breadcrumb" class="mb-4">
+                <ol class="flex items-center gap-2 text-sm" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="/" class="text-dark-400 hover:text-emerald-400 transition-colors">
+                            <span itemprop="name">Home</span>
+                        </a>
+                        <meta itemprop="position" content="1" />
+                    </li>
+                    <li class="text-dark-600">/</li>
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <span itemprop="name" class="text-dark-300">YAML Formatter</span>
+                        <meta itemprop="position" content="2" />
+                    </li>
+                </ol>
+            </nav>
             <h1 class="text-2xl md:text-3xl font-bold text-white">YAML Formatter & Linter</h1>
             <p class="mt-1 text-dark-400 text-sm">Validate, format, and beautify YAML with syntax error detection</p>
         </div>
@@ -203,7 +241,98 @@ dependencies:
                 </div>
             </div>
         </div>
+        <!-- Related Tools Section -->
+        <section class="mt-12">
+            <h2 class="text-lg font-semibold text-white mb-4">Related Tools</h2>
+            <div class="flex flex-wrap gap-3">
+                <a href="https://www.jsonformat.de" target="_blank" rel="noopener noreferrer" class="tool-btn-secondary text-sm">JSON Formatter</a>
+                <a href="https://www.base64decoder.de" target="_blank" rel="noopener noreferrer" class="tool-btn-secondary text-sm">Base64 Decoder</a>
+                <a href="/uuid-generator.html" class="tool-btn-secondary text-sm">UUID Generator</a>
+                <a href="/timestamp-converter.html" class="tool-btn-secondary text-sm">Timestamp Converter</a>
+            </div>
+        </section>
+
+        <!-- SEO Content Section -->
+        <section class="mt-12 max-w-3xl">
+            <h2 class="text-xl font-semibold text-white mb-4">What is YAML?</h2>
+            <div class="prose prose-invert text-dark-300 text-sm space-y-4">
+                <p>YAML (YAML Ain't Markup Language) is a human-readable data serialization format commonly used for configuration files and data exchange. Unlike JSON, YAML uses indentation to represent structure, making it easier to read and write for humans.</p>
+                <p>YAML is widely used in DevOps tools like Kubernetes, Docker Compose, Ansible, and GitHub Actions. Its clean syntax and support for comments make it ideal for configuration management.</p>
+            </div>
+
+            <h3 class="text-lg font-semibold text-white mt-8 mb-3">Common YAML Syntax Rules</h3>
+            <ul class="text-dark-300 text-sm space-y-2">
+                <li>Use spaces for indentation (tabs are not allowed)</li>
+                <li>Key-value pairs are separated by a colon and space</li>
+                <li>Lists start with a hyphen and space</li>
+                <li>Strings don't require quotes (unless they contain special characters)</li>
+                <li>Comments start with a hash (#)</li>
+            </ul>
+
+            <!-- FAQ Section -->
+            <h3 class="text-lg font-semibold text-white mt-8 mb-4">Frequently Asked Questions</h3>
+            <div class="space-y-4">
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">What is YAML used for?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">YAML is primarily used for configuration files in software applications, CI/CD pipelines, container orchestration (Kubernetes), infrastructure as code (Ansible), and data serialization. Its human-readable format makes it popular for DevOps and application configuration.</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">How do I validate YAML syntax?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">Use this free YAML formatter to validate your YAML syntax. Paste your YAML code and click "Format & Validate". The tool will highlight any syntax errors with line numbers, helping you quickly identify and fix issues.</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">What's the difference between YAML and JSON?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">YAML is a superset of JSON, meaning valid JSON is also valid YAML. The main differences are: YAML uses indentation instead of braces, supports comments, is more human-readable, and allows multi-line strings without escaping. JSON is more widely supported in programming languages and APIs.</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">Why is indentation important in YAML?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">YAML uses indentation to represent nested structures and hierarchy. Unlike JSON which uses braces, YAML relies entirely on consistent spacing (typically 2 spaces) to define parent-child relationships. Incorrect indentation is the most common cause of YAML parsing errors.</p>
+                </details>
+            </div>
+        </section>
     </main>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is YAML used for?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "YAML is primarily used for configuration files in software applications, CI/CD pipelines, container orchestration (Kubernetes), infrastructure as code (Ansible), and data serialization. Its human-readable format makes it popular for DevOps and application configuration."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I validate YAML syntax?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Use this free YAML formatter to validate your YAML syntax. Paste your YAML code and click Format & Validate. The tool will highlight any syntax errors with line numbers, helping you quickly identify and fix issues."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's the difference between YAML and JSON?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "YAML is a superset of JSON, meaning valid JSON is also valid YAML. The main differences are: YAML uses indentation instead of braces, supports comments, is more human-readable, and allows multi-line strings without escaping. JSON is more widely supported in programming languages and APIs."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why is indentation important in YAML?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "YAML uses indentation to represent nested structures and hierarchy. Unlike JSON which uses braces, YAML relies entirely on consistent spacing (typically 2 spaces) to define parent-child relationships. Incorrect indentation is the most common cause of YAML parsing errors."
+                }
+            }
+        ]
+    }
+    </script>
 
     <!-- Footer -->
     <footer class="border-t border-dark-800 py-6 px-4 mt-auto">

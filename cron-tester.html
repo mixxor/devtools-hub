@@ -13,9 +13,10 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cron Expression Tester - codeutils.de</title>
+    <title>Free Cron Expression Tester - Crontab Validator | codeutils.de</title>
     <meta name="description" content="Free cron expression tester. Validate cron expressions and see upcoming execution times. Supports standard cron and extended syntax. No ads, no tracking.">
     <meta name="keywords" content="cron tester, cron expression, cron validator, crontab, schedule tester, cron parser">
+    <link rel="canonical" href="https://codeutils.de/cron-tester.html">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Cron Expression Tester - codeutils.de">
@@ -37,17 +38,54 @@
     <!-- Klaro Consent Management -->
     <script src="/js/klaro-config.js"></script>
     <script defer data-config="klaroConfig" src="https://cdn.kiir.de/klaro/v0.7/klaro.js"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Cron Expression Tester",
+        "description": "Free online cron expression tester. Validate cron syntax and preview upcoming execution times.",
+        "url": "https://codeutils.de/cron-tester.html",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "featureList": [
+            "Cron expression validation",
+            "Human-readable descriptions",
+            "Next execution preview",
+            "Visual cron builder",
+            "Common presets",
+            "Standard 5-field cron support"
+        ]
+    }
+    </script>
 </head>
 <body class="bg-dark-950 text-dark-100 min-h-screen flex flex-col">
     <!-- Header -->
     <header class="py-6 px-4 border-b border-dark-800">
         <div class="max-w-7xl mx-auto">
-            <a href="/" class="inline-flex items-center text-dark-400 hover:text-emerald-400 transition-colors text-sm mb-4">
-                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-                Back to Tools
-            </a>
+            <!-- Breadcrumb -->
+            <nav aria-label="Breadcrumb" class="mb-4">
+                <ol class="flex items-center gap-2 text-sm" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a itemprop="item" href="/" class="text-dark-400 hover:text-emerald-400 transition-colors">
+                            <span itemprop="name">Home</span>
+                        </a>
+                        <meta itemprop="position" content="1" />
+                    </li>
+                    <li class="text-dark-600">/</li>
+                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <span itemprop="name" class="text-dark-300">Cron Tester</span>
+                        <meta itemprop="position" content="2" />
+                    </li>
+                </ol>
+            </nav>
             <h1 class="text-2xl md:text-3xl font-bold text-white">Cron Expression Tester</h1>
             <p class="mt-1 text-dark-400 text-sm">Validate cron expressions and preview upcoming execution times</p>
         </div>
@@ -250,7 +288,88 @@
                 </button>
             </div>
         </div>
+        <!-- Related Tools Section -->
+        <section class="mt-12">
+            <h2 class="text-lg font-semibold text-white mb-4">Related Tools</h2>
+            <div class="flex flex-wrap gap-3">
+                <a href="/timestamp-converter.html" class="tool-btn-secondary text-sm">Timestamp Converter</a>
+                <a href="/uuid-generator.html" class="tool-btn-secondary text-sm">UUID Generator</a>
+                <a href="/yaml-formatter.html" class="tool-btn-secondary text-sm">YAML Formatter</a>
+            </div>
+        </section>
+
+        <!-- SEO Content Section -->
+        <section class="mt-12 max-w-3xl">
+            <h2 class="text-xl font-semibold text-white mb-4">What is a Cron Expression?</h2>
+            <div class="prose prose-invert text-dark-300 text-sm space-y-4">
+                <p>A cron expression is a string representing a schedule for recurring tasks. Originally from Unix cron, it's now used in many systems including Kubernetes, GitHub Actions, and cloud schedulers.</p>
+                <p>The standard format uses 5 fields: minute, hour, day of month, month, and day of week. Each field can contain specific values, ranges, wildcards (*), or step values (*/5).</p>
+            </div>
+
+            <!-- FAQ Section -->
+            <h3 class="text-lg font-semibold text-white mt-8 mb-4">Frequently Asked Questions</h3>
+            <div class="space-y-4">
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">What does * mean in cron?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">The asterisk (*) is a wildcard meaning "every possible value" for that field. For example, * in the hour field means "every hour", while * in the day-of-week field means "every day".</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">How do I run a cron job every 5 minutes?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">Use */5 in the minute field: "*/5 * * * *". The /5 is a step value that means "every 5th value". This runs at minutes 0, 5, 10, 15, etc.</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">What's the difference between 0 and * in cron?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">0 is a specific value (e.g., minute 0, or Sunday), while * means all values. "0 * * * *" runs at minute 0 of every hour, but "* * * * *" runs every minute.</p>
+                </details>
+                <details class="bg-dark-900 rounded-lg">
+                    <summary class="cursor-pointer p-4 text-white font-medium">Is Sunday 0 or 7 in cron?</summary>
+                    <p class="px-4 pb-4 text-dark-400 text-sm">In standard cron, Sunday is 0 and Saturday is 6. However, some systems also accept 7 for Sunday. The days go: 0=Sunday, 1=Monday, 2=Tuesday, etc.</p>
+                </details>
+            </div>
+        </section>
     </main>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What does * mean in cron?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The asterisk (*) is a wildcard meaning every possible value for that field. For example, * in the hour field means every hour, while * in the day-of-week field means every day."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I run a cron job every 5 minutes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Use */5 in the minute field: */5 * * * *. The /5 is a step value that means every 5th value. This runs at minutes 0, 5, 10, 15, etc."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's the difference between 0 and * in cron?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "0 is a specific value (e.g., minute 0, or Sunday), while * means all values. 0 * * * * runs at minute 0 of every hour, but * * * * * runs every minute."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is Sunday 0 or 7 in cron?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "In standard cron, Sunday is 0 and Saturday is 6. However, some systems also accept 7 for Sunday. The days go: 0=Sunday, 1=Monday, 2=Tuesday, etc."
+                }
+            }
+        ]
+    }
+    </script>
 
     <!-- Footer -->
     <footer class="border-t border-dark-800 py-6 px-4 mt-auto">
