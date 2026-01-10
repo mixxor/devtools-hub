@@ -50,41 +50,177 @@
 
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 pb-16">
+        <!-- SEO Introduction -->
+        <p class="seo-intro">
+            Essential developer utilities for everyday coding tasks. Encode data, format JSON and YAML, generate UUIDs and secure passwords, calculate network ranges, and more. All tools run entirely in your browser for maximum privacy and speed.
+        </p>
+
         <!-- Active Tools Gallery -->
-        <section id="tools-gallery" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Skeleton placeholders - replaced by JavaScript -->
-            <article class="tool-card skeleton-card">
-                <div class="screenshot-container loading"></div>
-                <div class="tool-card-content">
-                    <div class="skeleton-text" style="width:70%;height:1.5rem;margin-bottom:0.5rem"></div>
-                    <div class="skeleton-text" style="width:90%;height:1rem;margin-bottom:1rem"></div>
-                    <div class="skeleton-text" style="width:6rem;height:2.5rem;border-radius:0.5rem"></div>
+        <section id="tools-gallery">
+            <!-- Encoding & Formatting -->
+            <div class="category-section">
+                <h2 class="category-header">Encoding & Formatting</h2>
+                <div class="category-tools">
+                    <article class="tool-card">
+                        <div class="tool-card-header">
+                            <h3 class="text-lg font-semibold text-white">
+                                <a href="https://www.base64decoder.de" target="_blank" rel="noopener noreferrer" class="tool-link">Base64 Decoder/Encoder</a>
+                            </h3>
+                        </div>
+                        <div class="screenshot-container">
+                            <img src="/images/screenshots/base64decoder.svg" alt="Base64 Decoder/Encoder screenshot" width="800" height="450" loading="lazy">
+                        </div>
+                        <div class="tool-card-content">
+                            <p class="text-dark-400 text-sm mb-4">Encode and decode Base64 strings instantly</p>
+                            <span class="open-tool-btn">Open Tool
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </span>
+                        </div>
+                    </article>
+                    <article class="tool-card">
+                        <div class="tool-card-header">
+                            <h3 class="text-lg font-semibold text-white">
+                                <a href="https://www.jsonformat.de" target="_blank" rel="noopener noreferrer" class="tool-link">JSON Formatter</a>
+                            </h3>
+                        </div>
+                        <div class="screenshot-container">
+                            <img src="/images/screenshots/jsonformat.svg" alt="JSON Formatter screenshot" width="800" height="450" loading="lazy">
+                        </div>
+                        <div class="tool-card-content">
+                            <p class="text-dark-400 text-sm mb-4">Format, validate and beautify JSON data</p>
+                            <span class="open-tool-btn">Open Tool
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </span>
+                        </div>
+                    </article>
+                    <article class="tool-card">
+                        <div class="tool-card-header">
+                            <h3 class="text-lg font-semibold text-white">
+                                <a href="/yaml-formatter.html" target="_blank" rel="noopener noreferrer" class="tool-link">YAML Formatter & Linter</a>
+                            </h3>
+                        </div>
+                        <div class="screenshot-container">
+                            <img src="/images/screenshots/yaml.svg" alt="YAML Formatter screenshot" width="800" height="450" loading="lazy">
+                        </div>
+                        <div class="tool-card-content">
+                            <p class="text-dark-400 text-sm mb-4">Validate, format, and beautify YAML with syntax error detection</p>
+                            <span class="open-tool-btn">Open Tool
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </span>
+                        </div>
+                    </article>
                 </div>
-            </article>
-            <article class="tool-card skeleton-card">
-                <div class="screenshot-container loading"></div>
-                <div class="tool-card-content">
-                    <div class="skeleton-text" style="width:60%;height:1.5rem;margin-bottom:0.5rem"></div>
-                    <div class="skeleton-text" style="width:85%;height:1rem;margin-bottom:1rem"></div>
-                    <div class="skeleton-text" style="width:6rem;height:2.5rem;border-radius:0.5rem"></div>
+            </div>
+
+            <!-- Security -->
+            <div class="category-section">
+                <h2 class="category-header">Security</h2>
+                <div class="category-tools">
+                    <article class="tool-card">
+                        <div class="tool-card-header">
+                            <h3 class="text-lg font-semibold text-white">
+                                <a href="/password-generator.html" target="_blank" rel="noopener noreferrer" class="tool-link">Password Generator</a>
+                            </h3>
+                        </div>
+                        <div class="screenshot-container">
+                            <img src="/images/screenshots/password.svg" alt="Password Generator screenshot" width="800" height="450" loading="lazy">
+                        </div>
+                        <div class="tool-card-content">
+                            <p class="text-dark-400 text-sm mb-4">Generate secure passwords, memorable passphrases, and PINs</p>
+                            <span class="open-tool-btn">Open Tool
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </span>
+                        </div>
+                    </article>
+                    <article class="tool-card">
+                        <div class="tool-card-header">
+                            <h3 class="text-lg font-semibold text-white">
+                                <a href="/password-checker.html" target="_blank" rel="noopener noreferrer" class="tool-link">Password Strength Checker</a>
+                            </h3>
+                        </div>
+                        <div class="screenshot-container">
+                            <img src="/images/screenshots/password-checker.svg" alt="Password Strength Checker screenshot" width="800" height="450" loading="lazy">
+                        </div>
+                        <div class="tool-card-content">
+                            <p class="text-dark-400 text-sm mb-4">Analyze password strength with entropy estimation and crack time</p>
+                            <span class="open-tool-btn">Open Tool
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </span>
+                        </div>
+                    </article>
                 </div>
-            </article>
-            <article class="tool-card skeleton-card">
-                <div class="screenshot-container loading"></div>
-                <div class="tool-card-content">
-                    <div class="skeleton-text" style="width:75%;height:1.5rem;margin-bottom:0.5rem"></div>
-                    <div class="skeleton-text" style="width:95%;height:1rem;margin-bottom:1rem"></div>
-                    <div class="skeleton-text" style="width:6rem;height:2.5rem;border-radius:0.5rem"></div>
+            </div>
+
+            <!-- DevOps & Infrastructure -->
+            <div class="category-section">
+                <h2 class="category-header">DevOps & Infrastructure</h2>
+                <div class="category-tools">
+                    <article class="tool-card">
+                        <div class="tool-card-header">
+                            <h3 class="text-lg font-semibold text-white">
+                                <a href="/uuid-generator.html" target="_blank" rel="noopener noreferrer" class="tool-link">UUID Generator</a>
+                            </h3>
+                        </div>
+                        <div class="screenshot-container">
+                            <img src="/images/screenshots/uuid.svg" alt="UUID Generator screenshot" width="800" height="450" loading="lazy">
+                        </div>
+                        <div class="tool-card-content">
+                            <p class="text-dark-400 text-sm mb-4">Generate random UUIDs, validate, and convert between formats</p>
+                            <span class="open-tool-btn">Open Tool
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </span>
+                        </div>
+                    </article>
+                    <article class="tool-card">
+                        <div class="tool-card-header">
+                            <h3 class="text-lg font-semibold text-white">
+                                <a href="/timestamp-converter.html" target="_blank" rel="noopener noreferrer" class="tool-link">Timestamp Converter</a>
+                            </h3>
+                        </div>
+                        <div class="screenshot-container">
+                            <img src="/images/screenshots/timestamp.svg" alt="Timestamp Converter screenshot" width="800" height="450" loading="lazy">
+                        </div>
+                        <div class="tool-card-content">
+                            <p class="text-dark-400 text-sm mb-4">Convert between Unix timestamps and human-readable dates</p>
+                            <span class="open-tool-btn">Open Tool
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </span>
+                        </div>
+                    </article>
+                    <article class="tool-card">
+                        <div class="tool-card-header">
+                            <h3 class="text-lg font-semibold text-white">
+                                <a href="/cron-tester.html" target="_blank" rel="noopener noreferrer" class="tool-link">Cron Expression Tester</a>
+                            </h3>
+                        </div>
+                        <div class="screenshot-container">
+                            <img src="/images/screenshots/cron.svg" alt="Cron Expression Tester screenshot" width="800" height="450" loading="lazy">
+                        </div>
+                        <div class="tool-card-content">
+                            <p class="text-dark-400 text-sm mb-4">Validate cron expressions and preview upcoming execution times</p>
+                            <span class="open-tool-btn">Open Tool
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </span>
+                        </div>
+                    </article>
+                    <article class="tool-card">
+                        <div class="tool-card-header">
+                            <h3 class="text-lg font-semibold text-white">
+                                <a href="/cidr-calculator.html" target="_blank" rel="noopener noreferrer" class="tool-link">CIDR Calculator</a>
+                            </h3>
+                        </div>
+                        <div class="screenshot-container">
+                            <img src="/images/screenshots/cidr.svg" alt="CIDR Calculator screenshot" width="800" height="450" loading="lazy">
+                        </div>
+                        <div class="tool-card-content">
+                            <p class="text-dark-400 text-sm mb-4">Calculate IP ranges, subnet masks, and network information</p>
+                            <span class="open-tool-btn">Open Tool
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            </span>
+                        </div>
+                    </article>
                 </div>
-            </article>
-            <article class="tool-card skeleton-card">
-                <div class="screenshot-container loading"></div>
-                <div class="tool-card-content">
-                    <div class="skeleton-text" style="width:55%;height:1.5rem;margin-bottom:0.5rem"></div>
-                    <div class="skeleton-text" style="width:88%;height:1rem;margin-bottom:1rem"></div>
-                    <div class="skeleton-text" style="width:6rem;height:2.5rem;border-radius:0.5rem"></div>
-                </div>
-            </article>
+            </div>
         </section>
 
         <!-- Coming Soon Section -->
@@ -110,6 +246,6 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="/js/main.js"></script>
+    <script src="/js/main.js?v=2"></script>
 </body>
 </html>

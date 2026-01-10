@@ -367,3 +367,52 @@ html {
 #ip-list::-webkit-scrollbar-thumb:hover {
     background: #475569;
 }
+
+/* ========================================
+   Category & Overview Page Styles
+   ======================================== */
+
+.category-section {
+    margin-bottom: 3rem;
+}
+
+.category-header {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #334155;
+}
+
+.category-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: flex-start;
+}
+
+.category-tools .tool-card {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .category-tools .tool-card {
+        width: calc(50% - 0.75rem);
+    }
+}
+
+@media (min-width: 1024px) {
+    .category-tools .tool-card {
+        width: calc(33.333% - 1rem);
+    }
+}
+
+.seo-intro {
+    max-width: 48rem;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+}

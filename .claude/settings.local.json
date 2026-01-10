@@ -9,7 +9,9 @@
       "Bash(docker build:*)",
       "Bash(/opt/homebrew/bin/npm run build:css)",
       "Bash(/usr/local/bin/npm run build:css)",
-      "Bash(npx tailwindcss:*)"
+      "Bash(npx tailwindcss:*)",
+      "mcp__ide__getDiagnostics",
+      "WebFetch(domain:localhost)"
     ]
   }
 }
