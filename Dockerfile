@@ -13,6 +13,10 @@ COPY js/ ./js/
 
 RUN npm run build:css
 
+# Generate sitemap
+COPY generate-sitemap.sh ./
+RUN chmod +x generate-sitemap.sh && ./generate-sitemap.sh
+
 # Production stage
 FROM nginx:1.29-alpine
 
@@ -26,6 +30,7 @@ COPY yaml-formatter.html /usr/share/nginx/html/yaml-formatter.html
 COPY password-generator.html /usr/share/nginx/html/password-generator.html
 COPY password-checker.html /usr/share/nginx/html/password-checker.html
 COPY --from=builder /app/css/style.css /usr/share/nginx/html/css/style.css
+COPY --from=builder /app/sitemap.xml /usr/share/nginx/html/sitemap.xml
 COPY js/ /usr/share/nginx/html/js/
 COPY images/ /usr/share/nginx/html/images/
 COPY data/ /usr/share/nginx/html/data/

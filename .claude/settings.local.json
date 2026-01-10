@@ -12,7 +12,9 @@
       "Bash(npx tailwindcss:*)",
       "mcp__ide__getDiagnostics",
       "WebFetch(domain:localhost)",
-      "WebFetch(domain:www.npmjs.com)"
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(chmod:*)",
+      "Bash(./generate-sitemap.sh:*)"
     ]
   }
 }
